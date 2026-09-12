@@ -42,7 +42,7 @@ export function About() {
                                 The Operator&apos;s Mindset
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
-                                I'm Erick Mwangi, an Interior Architect who believes every space carries a story. Since graduating from the Technical University of Kenya in 2024, I have worked across residential and commercial projects. My focus is on balancing design, functionality, technical requirements, and the realities of construction.
+                                I&apos;m Erick Mwangi, an Interior Architect who believes every space carries a story. Since graduating from the Technical University of Kenya in 2024, I have worked across residential and commercial projects. My focus is on balancing design, functionality, technical requirements, and the realities of construction.
                             </p>
                         </div>
                     </motion.div>

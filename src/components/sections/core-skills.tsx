@@ -68,7 +68,7 @@ export function CoreSkills() {
                     variants={STAGGER_NORMAL}
                     className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14"
                 >
-                    {TECH_STACK.map((category, categoryIdx) => (
+                    {TECH_STACK.map((category) => (
                         <motion.div key={category.title} variants={FADE_UP}>
                             <div className="group">
                                 {/* Category Header */}

@@ -31,7 +31,7 @@ export function Testimonials() {
                     variants={STAGGER_NORMAL}
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
                 >
-                    {TESTIMONIALS.map((testimonial, index) => (
+                    {TESTIMONIALS.map((testimonial) => (
                         <motion.div
                             key={testimonial.id}
                             variants={FADE_UP}
