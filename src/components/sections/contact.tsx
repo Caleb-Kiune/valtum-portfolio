@@ -127,7 +127,7 @@ export function Contact() {
             <div className="container mx-auto px-6 max-w-6xl">
                 <SectionHeading
                     title="Let's Connect"
-                    subtitle="Whether you have a technical question or a project proposal, I’d love to hear from you."
+                    subtitle="Whether you are planning a residential build, a commercial fit-out, or simply need a consultation, I'd love to hear from you."
                     className="mb-10"
                 />
 
@@ -136,7 +136,7 @@ export function Contact() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                         {/* Email Card */}
                         <a
-                            href="mailto:calebkiune@gmail.com"
+                            href="mailto:erickwanjohi30@gmail.com"
                             className="flex items-center gap-4 p-4 rounded-card bg-surface border border-border hover:bg-surface-elevated hover:border-border-highlight transition-all group"
                         >
                             <div className="h-10 w-10 shrink-0 rounded-inner bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
@@ -144,13 +144,13 @@ export function Contact() {
                             </div>
                             <div>
                                 <h3 className="text-sm font-medium text-foreground/80 group-hover:text-foreground">Email Me</h3>
-                                <p className="text-xs text-muted-foreground">calebkiune@gmail.com</p>
+                                <p className="text-xs text-muted-foreground">erickwanjohi30@gmail.com</p>
                             </div>
                         </a>
 
                         {/* WhatsApp Card */}
                         <a
-                            href="https://wa.me/254705774171"
+                            href="https://wa.me/254741352159"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-4 p-4 rounded-card bg-surface border border-border hover:bg-surface-elevated hover:border-border-highlight transition-all group"
@@ -160,7 +160,7 @@ export function Contact() {
                             </div>
                             <div>
                                 <h3 className="text-sm font-medium text-foreground/80 group-hover:text-foreground">WhatsApp</h3>
-                                <p className="text-xs text-muted-foreground">+254 705 774 171</p>
+                                <p className="text-xs text-muted-foreground">+254 741 352 159</p>
                             </div>
                         </a>
                     </div>
