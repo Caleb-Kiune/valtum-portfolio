@@ -25,21 +25,21 @@ export function SelectedWork() {
                     />
                 </motion.div>
 
-                {/* Uniform Grid - No Spanning */}
+                {/* Editorial Rows Container */}
                 <motion.div 
                     initial="hidden"
                     whileInView="visible"
                     viewport={VIEWPORT}
                     variants={STAGGER_NORMAL}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+                    className="flex flex-col w-full"
                 >
                     {PROJECTS.map((project, index) => (
                         <motion.div
                             key={project.id}
                             variants={FADE_UP}
-                            className="col-span-1 h-full"
+                            className="w-full py-16 lg:py-24 border-b border-divider last:border-b-0"
                         >
-                            <ProjectCard project={project} />
+                            <ProjectCard project={project} index={index} />
                         </motion.div>
                     ))}
                 </motion.div>

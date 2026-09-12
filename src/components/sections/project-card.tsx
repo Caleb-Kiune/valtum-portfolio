@@ -1,61 +1,58 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { ArchitecturalProject } from "@/lib/types/project";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: ArchitecturalProject;
+  index: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
-  const imageContent = (
-    <Image
-      src={project.heroImage}
-      alt={project.title}
-      fill
-      loading="lazy"
-      decoding="async"
-      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-    />
-  );
+export function ProjectCard({ project, index }: ProjectCardProps) {
+  const isOdd = index % 2 !== 0;
 
   return (
-    <article
-      className="group relative flex flex-col h-full overflow-hidden rounded-card bg-surface border border-border-subtle hover:border-border hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
+    <Link
+      href={`/projects/${project.slug}`}
+      aria-label={`View project — ${project.title}`}
+      className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16"
     >
-      <Link
-        href={`/projects/${project.slug}`}
-        aria-label={`View project — ${project.title}`}
-        className="relative block w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden bg-surface border-b border-border-subtle active:scale-[0.98] transition-transform"
+      {/* Image Wrapper */}
+      <div 
+        className={cn(
+          "lg:col-span-7 relative overflow-hidden rounded-micro aspect-[4/3]",
+          isOdd && "lg:order-last"
+        )}
       >
-        {imageContent}
-      </Link>
-
-      <div className="flex flex-col flex-1 p-5 md:p-6 relative z-0 bg-surface">
-        <div className="space-y-3 mb-4">
-          <div>
-            <h3 className="text-xl font-display font-bold text-foreground group-hover:text-primary transition-colors mb-2">
-              {project.title}
-            </h3>
-            
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-              {project.tag} • {project.location}
-            </p>
-          </div>
-        </div>
-
-        <Link
-          href={`/projects/${project.slug}`}
-          className="mt-auto pt-4 border-t border-border-subtle flex items-center justify-between active:scale-[0.98] transition-transform"
-          aria-label={`View project details for ${project.title}`}
-        >
-          <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-            View Project
-          </span>
-          <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
-        </Link>
+        <Image
+          src={project.heroImage}
+          alt={project.title}
+          fill
+          loading="lazy"
+          decoding="async"
+          className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+          sizes="(max-width: 1024px) 100vw, 60vw"
+        />
       </div>
-    </article>
+
+      {/* Text Wrapper */}
+      <div className="lg:col-span-5 flex flex-col justify-center">
+        <div className="text-label-meta mb-4">
+          {project.tag}
+        </div>
+        
+        <h3 className="font-serif text-display-md font-normal text-foreground mb-4 group-hover:text-foreground/80 transition-colors">
+          {project.title}
+        </h3>
+        
+        <p className="text-body text-muted-foreground mb-8">
+          {project.location}
+        </p>
+        
+        <div className="text-body-sm uppercase tracking-widest font-medium text-muted-foreground group-hover:text-accent transition-colors">
+          View Project <span className="inline-block transform transition-transform group-hover:translate-x-1">→</span>
+        </div>
+      </div>
+    </Link>
   );
 }
