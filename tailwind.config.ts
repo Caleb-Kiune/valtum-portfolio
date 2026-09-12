@@ -9,112 +9,108 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        // BASE: Theme-aware via CSS variables
         page: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-
-        // LAYERS: Surfaces
+        "text-body": "hsl(var(--text-body))",
         surface: {
           DEFAULT: "hsl(var(--surface))",
           elevated: "hsl(var(--surface-elevated))",
-        },
-
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-
-        // DOCTRINE COLORS
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          alt: "hsl(var(--surface-alt))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
+          hover: "hsl(var(--accent-hover))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        deep: {
+          DEFAULT: "hsl(var(--deep))",
+          foreground: "hsl(var(--deep-foreground))",
+        },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-
-        // UTILITY: Border system
+        subtle: "hsl(var(--text-subtle))",
         border: {
           DEFAULT: "hsl(var(--border))",
-          subtle: "hsl(var(--border-subtle))",
-          highlight: "hsl(var(--border-highlight))",
+          hover: "hsl(var(--border-hover))",
         },
+        divider: "hsl(var(--divider))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-
-        // Destructive
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-
-        // Brands (static — always same in both themes)
-        whatsapp: "#25D366",
-
-        // Glass adapters (for bg-glass/5, border-glass/10, etc.)
-        glass: "hsl(var(--glass-bg))",
       },
-      // Luxury spacing system (Ram Maheshwari negative space)
       spacing: {
         "18": "4.5rem",
         "22": "5.5rem",
         "26": "6.5rem",
         "30": "7.5rem",
-        section: "8rem",
-        "section-lg": "10rem",
+        section: "10rem",       // 160px (was 128px)
+        "section-lg": "15rem",  // 240px (was 160px)
       },
-      // Editorial typography scale (Ram Maheshwari inspired)
       fontSize: {
+        // ─── SERIF DISPLAY SCALE (Cormorant Garamond) ───
+        "display-hero": [
+          "clamp(3.5rem, 8vw, 6.5rem)",
+          { lineHeight: "0.95", letterSpacing: "-0.03em", fontWeight: "400" },
+        ],
         "display-xl": [
-          "4.5rem",
-          { lineHeight: "1", letterSpacing: "-0.03em", fontWeight: "700" },
+          "clamp(2.75rem, 5.5vw, 4.5rem)",
+          { lineHeight: "1.0", letterSpacing: "-0.025em", fontWeight: "400" },
         ],
         "display-lg": [
-          "3.75rem",
-          { lineHeight: "1.05", letterSpacing: "-0.025em", fontWeight: "700" },
+          "clamp(2.25rem, 4vw, 3.5rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: "400" },
         ],
         "display-md": [
-          "3rem",
-          { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "600" },
+          "clamp(1.75rem, 3vw, 2.5rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.015em", fontWeight: "400" },
         ],
         "display-sm": [
-          "2.25rem",
-          { lineHeight: "1.15", letterSpacing: "-0.015em", fontWeight: "600" },
+          "clamp(1.5rem, 2.5vw, 1.875rem)",
+          { lineHeight: "1.15", letterSpacing: "-0.01em", fontWeight: "400" },
+        ],
+      
+        // ─── SANS-SERIF BODY SCALE (Inter) ───
+        "body-lg": [
+          "1.125rem",
+          { lineHeight: "1.75", fontWeight: "400" },
+        ],
+        "body": [
+          "1rem",
+          { lineHeight: "1.7", fontWeight: "400" },
+        ],
+        "body-sm": [
+          "0.875rem",
+          { lineHeight: "1.6", fontWeight: "400" },
+        ],
+      
+        // ─── UTILITY ───
+        "label": [
+          "0.6875rem",
+          { lineHeight: "1.4", letterSpacing: "0.15em", fontWeight: "500" },
+        ],
+        "caption": [
+          "0.75rem",
+          { lineHeight: "1.5", fontWeight: "400" },
         ],
       },
       borderRadius: {
-        // Primitives (Inherit from globals.css variable)
-        lg: "var(--radius)",         // ~0.5rem (8px)
-        md: "calc(var(--radius) - 2px)", // ~0.375rem (6px)
-        sm: "calc(var(--radius) - 4px)", // ~0.25rem (4px)
-
-        // Semantic Aliases
-        'button': "var(--radius)",        // Maps to 'lg' (8px) - For all interactive buttons
-        'input': "var(--radius)",         // Maps to 'lg' (8px) - For form inputs
-        'card': '0.75rem',                // 12px - Universal Card Radius (Strict)
-        'inner': "calc(var(--radius) - 2px)", // Maps to 'md' (6px) - For pills, tags, inner items
+        none: "0px",
+        micro: "2px",       // Images in containers, cards, inputs
+        sm: "3px",          // Slightly larger containers
+        full: "9999px",     // Pills, avatars, status dots ONLY
+        button: "0px",      // Buttons are sharp — editorial standard
+        input: "2px",       // Form inputs
+        card: "2px",        // Card containers
       },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-outfit)", "ui-sans-serif", "system-ui"],
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular"],
       },
     },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Geist_Mono } from "next/font/google";
+import { Inter, Cormorant_Garamond, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,10 +8,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600"],
 });
 
 const geistMono = Geist_Mono({
@@ -65,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth relative">
       <body
-        className={`${inter.variable} ${outfit.variable} ${geistMono.variable} relative font-sans min-h-screen bg-page text-foreground antialiased selection:bg-primary selection:text-primary-foreground`}
+        className={`${inter.variable} ${cormorant.variable} ${geistMono.variable} relative font-sans min-h-screen`}
       >
         <ThemeProvider>
           <Header />
