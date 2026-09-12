@@ -1,4 +1,4 @@
-import { MapPin, TrendingUp, ShieldCheck, Clock } from "lucide-react";
+import { MapPin, Building2, ShieldCheck, Clock } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function About() {
@@ -11,10 +11,10 @@ export function About() {
                 <ScrollReveal>
                     <div className="mb-12 md:mb-16">
                         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                            From Underwriting to <span className="text-primary">Engineering</span>
+                            The Valtum Approach
                         </h2>
                         <p className="text-muted-foreground max-w-2xl text-lg">
-                            I bridge the gap between complex business logic and reliable software.
+                            Balancing design, functionality, and the realities of construction.
                         </p>
                     </div>
                 </ScrollReveal>
@@ -29,8 +29,7 @@ export function About() {
                                 The Operator&apos;s Mindset
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">
-                                I didn&apos;t start as a coder—I started in operations. With over 5 years of experience in the
-                                <span className="text-foreground/80 font-medium"> insurance industry</span>, I know that software isn&apos;t just about code: it&apos;s about solving business problems. I transitioned into software development because I wanted to build the tools I wished I had. Today, I combine that operational discipline with modern web development skills to build systems that are practical, efficient, and user-friendly.
+                                I'm Erick Mwangi, an Interior Architect who believes every space carries a story. Since graduating from the Technical University of Kenya in 2024, I have worked across residential and commercial projects. My focus is on balancing design, functionality, technical requirements, and the realities of construction.
                             </p>
                         </div>
                     </ScrollReveal>
@@ -38,12 +37,12 @@ export function About() {
                     {/* CARD 2: The Stats (Square) */}
                     <ScrollReveal delay={200} className="md:col-span-1">
                         <div className="bg-surface border border-border p-8 rounded-card flex flex-col justify-center items-center text-center group hover:bg-surface-elevated transition-colors h-full">
-                            <div className="mb-4 p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                <TrendingUp className="w-8 h-8 text-primary" />
+                            <div className="mb-4 p-4 rounded-full bg-surface-elevated transition-colors">
+                                <Building2 className="w-8 h-8 text-primary" />
                             </div>
-                            <div className="text-5xl font-bold text-foreground mb-2">5+</div>
+                            <div className="text-xl font-bold text-foreground mb-2">Residential & Commercial</div>
                             <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-                                Years Industry Experience
+                                Project Management
                             </div>
                         </div>
                     </ScrollReveal>
@@ -55,9 +54,9 @@ export function About() {
                                 <div className="p-3 rounded-inner bg-surface-elevated group-hover:bg-border-highlight transition-colors">
                                     <MapPin className="w-6 h-6 text-foreground" />
                                 </div>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-elevated border border-border-subtle">
                                     <span className="inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                                    <span className="text-xs font-medium text-primary">Active</span>
+                                    <span className="text-xs font-medium text-foreground/70">Active</span>
                                 </div>
                             </div>
                             <div>
@@ -72,19 +71,10 @@ export function About() {
                     {/* CARD 4: Philosophy/Stack (Wide) */}
                     <ScrollReveal delay={400} className="md:col-span-2">
                         <div className="bg-surface border border-border p-8 rounded-card h-full">
-                            <h3 className="text-xl font-bold text-foreground mb-4">Technical Precision</h3>
+                            <h3 className="text-xl font-bold text-foreground mb-4">Design Precision</h3>
                             <p className="text-muted-foreground mb-6">
-                                I specialize in building modern applications that prioritize speed and data integrity, ensuring your system behaves predictably as your business grows.
+                                I specialize in creating environments that reflect the unique identity of my clients while maintaining the highest standards of buildability and structural integrity.
                             </p>
-
-                            {/* Mini Tech Pills */}
-                            <div className="flex flex-wrap gap-2">
-                                {["Next.js", "TypeScript", "Tailwind", "Node.js", "PostgreSQL"].map((tech) => (
-                                    <span key={tech} className="px-3 py-1 rounded-inner bg-surface-elevated text-xs font-medium text-foreground/70 border border-border-highlight">
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
                         </div>
                     </ScrollReveal>
                 </div>

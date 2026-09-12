@@ -27,8 +27,8 @@ export function Services() {
             <div className="container relative z-10 px-6 mx-auto max-w-6xl">
                 <ScrollReveal>
                     <SectionHeading
-                        title="My Expertise"
-                        subtitle="Bridging the gap between complex technical problems and seamless user experiences."
+                        title="Architectural Services"
+                        subtitle="Comprehensive solutions from concept to construction."
                         className="mb-12 md:mb-16"
                     />
                 </ScrollReveal>
@@ -39,9 +39,9 @@ export function Services() {
 
                         return (
                             <ScrollReveal key={index} delay={100 + index * 100}>
-                                <div className="group relative overflow-hidden rounded-card bg-surface p-6 md:p-8 shadow-sm transition-all hover:bg-surface-elevated border border-border hover:border-border-highlight h-full">
+                                <div className="group relative overflow-hidden rounded-card bg-surface p-6 md:p-8 transition-all hover:bg-surface-elevated border border-border-subtle hover:border-border h-full">
                                     <div className="flex flex-col gap-5">
-                                        <div className="p-3.5 w-fit rounded-inner bg-surface-elevated border border-border/50 text-primary group-hover:bg-border-highlight transition-colors">
+                                        <div className="p-3.5 w-fit rounded-inner bg-surface-elevated border border-border-subtle text-primary transition-colors">
                                             <IconComponent className="h-6 w-6" />
                                         </div>
 

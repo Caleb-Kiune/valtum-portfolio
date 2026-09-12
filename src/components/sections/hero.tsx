@@ -64,9 +64,9 @@ export function Hero() {
                             variants={FADE_UP_VARIANTS}
                             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight"
                         >
-                            Automate your{" "}
-                            <span className="text-primary">
-                                Complex Business Workflows
+                            Thoughtful spaces.{" "}
+                            <span className="text-primary block mt-2">
+                                Timeless living.
                             </span>
                         </motion.h1>
 
@@ -74,9 +74,9 @@ export function Hero() {
                             variants={FADE_UP_VARIANTS}
                             className="text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed"
                         >
-                            I build reliable,<span className="text-foreground/80 font-medium"> data-driven web applications</span> that streamline operations and cut manual processing time.
-                            <span className="block mt-3 text-xs font-mono text-primary tracking-wide">
-                                Currently accepting projects
+                            <span className="text-foreground/80 font-medium">Design. Detail. Purpose.</span> Providing comprehensive interior architecture and project management services.
+                            <span className="block mt-4 text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                                Interior Architecture & Design
                             </span>
                         </motion.p>
 
@@ -88,7 +88,7 @@ export function Hero() {
                                 href="https://wa.me/254705774171?text=Hi%20Caleb,%20I%20checked%20out%20your%20portfolio."
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center h-12 px-8 rounded-button bg-whatsapp hover:bg-whatsapp/90 text-white text-sm font-semibold tracking-wide transition-colors shadow-md shadow-black/[var(--shadow-strength)] active:scale-95"
+                                className="inline-flex items-center justify-center h-12 px-8 rounded-button bg-whatsapp hover:bg-whatsapp/90 text-white text-sm font-semibold tracking-wide transition-colors active:scale-95"
                             >
                                 <span className="flex items-center gap-2">
                                     Chat on WhatsApp
@@ -110,15 +110,15 @@ export function Hero() {
                         variants={FADE_UP_VARIANTS}
                         className="relative hidden md:flex flex-col items-center justify-center max-h-[400px]"
                     >
-                        <div className="relative w-[280px] h-[280px] lg:w-[320px] lg:h-[320px]">
-                            <div className="relative w-full h-full rounded-full border border-border overflow-hidden shadow-2xl shadow-black/[var(--shadow-strength)]">
+                        <div className="relative w-[320px] h-[400px] lg:w-[380px] lg:h-[480px]">
+                            <div className="relative w-full h-full rounded-[2rem] border border-border-subtle overflow-hidden">
                                 <Image
-                                    src="/caleb-kiune.jpg"
-                                    alt="Caleb Kiune"
+                                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80"
+                                    alt="Architectural Interior"
                                     fill
                                     className="object-cover"
                                     priority
-                                    sizes="(max-width: 1024px) 280px, 320px"
+                                    sizes="(max-width: 1024px) 320px, 380px"
                                 />
                             </div>
                         </div>

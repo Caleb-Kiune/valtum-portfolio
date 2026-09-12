@@ -1,24 +1,13 @@
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import {
-    SiNextdotjs,
-    SiTypescript,
-    SiTailwindcss,
-    SiNodedotjs,
-    SiPostgresql,
-
-    SiWhatsapp,
-    SiGoogleanalytics,
-} from "react-icons/si";
-import { Smartphone, Globe } from "lucide-react";
-import type { IconType } from "react-icons";
+import { Monitor, PenTool, Box, Layers, Video, Palette, MonitorPlay } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 // Type for tech stack items
 interface TechItem {
     name: string;
     description: string;
-    icon: IconType | LucideIcon;
+    icon: LucideIcon;
 }
 
 interface TechCategory {
@@ -29,39 +18,37 @@ interface TechCategory {
 // Curated tech stack data - Rule of Three
 const TECH_STACK: TechCategory[] = [
     {
-        title: "Frontend Ecosystem",
+        title: "Drafting & Modeling",
         items: [
-            { name: "Next.js", description: "Framework", icon: SiNextdotjs },
-            { name: "TypeScript", description: "Reliability", icon: SiTypescript },
-            { name: "Tailwind CSS", description: "Speed", icon: SiTailwindcss },
+            { name: "Archicad", description: "BIM & Drafting", icon: Box },
+            { name: "SketchUp", description: "3D Modeling", icon: Layers },
         ],
     },
     {
-        title: "Backend Infrastructure",
+        title: "Rendering & Visualization",
         items: [
-            { name: "Node.js", description: "Runtime", icon: SiNodedotjs },
-            { name: "PostgreSQL", description: "Database", icon: SiPostgresql },
-            { name: "REST APIs", description: "Architecture", icon: Globe },
+            { name: "D5 Render", description: "Real-time Rendering", icon: MonitorPlay },
+            { name: "Lumion", description: "3D Rendering", icon: Monitor },
         ],
     },
     {
-        title: "Business & Tools",
+        title: "Post-Production",
         items: [
-            { name: "M-Pesa Integration", description: "Daraja API", icon: Smartphone },
-            { name: "WhatsApp Business", description: "Communication", icon: SiWhatsapp },
-            { name: "Google Analytics", description: "ROI & Data", icon: SiGoogleanalytics },
+            { name: "Adobe Photoshop", description: "Image Editing", icon: Palette },
+            { name: "Adobe Illustrator", description: "Vector Graphics", icon: PenTool },
+            { name: "DaVinci Resolve", description: "Video Editing", icon: Video },
         ],
     },
 ];
 
-export function TechStack() {
+export function CoreSkills() {
     return (
         <section className="py-section md:py-section-lg bg-page border-t border-border">
             <div className="container mx-auto px-6 max-w-6xl">
                 <ScrollReveal>
                     <SectionHeading
-                        title="Technical Competence"
-                        subtitle="A curated, production-grade stack built for scale and reliability."
+                        title="Core Toolkit"
+                        subtitle="The software arsenal I use to bring architectural concepts to life."
                         className="mb-16 md:mb-20"
                     />
                 </ScrollReveal>

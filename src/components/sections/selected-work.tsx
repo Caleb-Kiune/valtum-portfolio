@@ -25,18 +25,7 @@ export function SelectedWork() {
                             delay={100 + index * 100}
                             className="col-span-1 h-full"
                         >
-                            <ProjectCard
-                                project={{
-                                    id: project.id,
-                                    title: project.title,
-                                    tag: project.tag,
-                                    metric: project.subtitle,
-                                    stack: [], // Patched
-                                    imageSrc: project.heroImage,
-                                    slug: project.slug,
-                                    liveUrl: undefined, // Patched
-                                }}
-                            />
+                            <ProjectCard project={project} />
                         </ScrollReveal>
                     ))}
                 </div>

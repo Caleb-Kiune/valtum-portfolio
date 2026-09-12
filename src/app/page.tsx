@@ -1,6 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
-import { TechStack } from "@/components/sections/tech-stack";
+import { CoreSkills } from "@/components/sections/core-skills";
 import { Services } from "@/components/sections/services";
 import { Contact } from "@/components/sections/contact";
 import { SelectedWork } from "@/components/sections/selected-work";
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <SelectedWork />
       <About />
-      <TechStack />
+      <CoreSkills />
 
       {/* Secondary Trust Signals */}
       <Services />
