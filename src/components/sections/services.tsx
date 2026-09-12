@@ -1,8 +1,11 @@
+"use client";
+
 import { services } from '@/lib/constants/services';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Smartphone, Layout, Server, Database, Code, Globe, Zap, Rocket, TrendingUp, PenTool, Layers, Ruler, Building2 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
+import { motion } from "framer-motion";
+import { FADE_UP, STAGGER_NORMAL, VIEWPORT } from "@/lib/motion";
 
 const IconMap: Record<string, LucideIcon> = {
     "Smartphone": Smartphone,
@@ -25,38 +28,49 @@ export function Services() {
         <section className="relative py-section border-y border-border bg-page" id="services">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 px-6 mx-auto max-w-6xl">
-                <ScrollReveal>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={VIEWPORT}
+                    variants={FADE_UP}
+                >
                     <SectionHeading
                         title="Architectural Services"
                         subtitle="Comprehensive solutions from concept to construction."
                         className="mb-12 md:mb-16"
                     />
-                </ScrollReveal>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={VIEWPORT}
+                    variants={STAGGER_NORMAL}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                >
                     {services.map((service, index) => {
                         const IconComponent = service.icon ? IconMap[service.icon] : Code;
 
                         return (
-                            <ScrollReveal key={index} delay={100 + index * 100}>
-                                <div className="group relative overflow-hidden rounded-card bg-surface p-6 md:p-8 transition-all hover:bg-surface-elevated border border-border-subtle hover:border-border h-full">
+                            <motion.div key={index} variants={FADE_UP}>
+                                <div className="group relative overflow-hidden rounded-micro bg-surface p-6 md:p-8 transition-all hover:bg-surface-elevated border border-divider hover:border-border-hover h-full">
                                     <div className="flex flex-col gap-5">
-                                        <div className="p-3.5 w-fit rounded-inner bg-surface-elevated border border-border-subtle text-primary transition-colors">
+                                        <div className="p-3.5 w-fit rounded-micro bg-surface-elevated border border-divider text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                             <IconComponent className="h-6 w-6" />
                                         </div>
 
                                         <div className="space-y-2.5">
-                                            <h3 className="font-display font-bold text-xl text-foreground/80 group-hover:text-foreground transition-colors">{service.title}</h3>
+                                            <h3 className="font-serif font-normal text-xl text-foreground/80 group-hover:text-foreground transition-colors">{service.title}</h3>
                                             <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/70 transition-colors">
                                                 {service.description}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                            </motion.div>
                         );
                     })}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

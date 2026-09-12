@@ -1,7 +1,10 @@
+"use client";
+
 import { SectionHeading } from "@/components/ui/section-heading";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Monitor, PenTool, Box, Layers, Video, Palette, MonitorPlay } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { FADE_UP, STAGGER_NORMAL, VIEWPORT } from "@/lib/motion";
 
 // Type for tech stack items
 interface TechItem {
@@ -45,20 +48,31 @@ export function CoreSkills() {
     return (
         <section className="py-section md:py-section-lg bg-page border-t border-border">
             <div className="container mx-auto px-6 max-w-6xl">
-                <ScrollReveal>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={VIEWPORT}
+                    variants={FADE_UP}
+                >
                     <SectionHeading
                         title="Core Toolkit"
                         subtitle="The software arsenal I use to bring architectural concepts to life."
                         className="mb-16 md:mb-20"
                     />
-                </ScrollReveal>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={VIEWPORT}
+                    variants={STAGGER_NORMAL}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14"
+                >
                     {TECH_STACK.map((category, categoryIdx) => (
-                        <ScrollReveal key={category.title} delay={100 + categoryIdx * 150}>
+                        <motion.div key={category.title} variants={FADE_UP}>
                             <div className="group">
                                 {/* Category Header */}
-                                <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/80 mb-6 pb-4 border-b border-border-subtle">
+                                <h3 className="text-label-meta mb-6 pb-4 border-b border-divider">
                                     {category.title}
                                 </h3>
 
@@ -69,10 +83,10 @@ export function CoreSkills() {
                                         return (
                                             <div
                                                 key={item.name}
-                                                className="group/item flex items-center gap-4 p-3 -mx-3 rounded-inner hover:bg-surface transition-colors duration-200 cursor-default"
+                                                className="group/item flex items-center gap-4 p-3 -mx-3 rounded-micro hover:bg-surface transition-colors duration-200 cursor-default"
                                             >
                                                 {/* Icon */}
-                                                <div className="flex items-center justify-center w-10 h-10 rounded-inner bg-surface-elevated border border-border group-hover/item:border-border-highlight transition-colors">
+                                                <div className="flex items-center justify-center w-10 h-10 rounded-micro bg-surface-elevated border border-border group-hover/item:border-border-hover transition-colors">
                                                     <Icon className="w-4.5 h-4.5 text-muted-foreground group-hover/item:text-foreground/80 transition-colors" />
                                                 </div>
 
@@ -90,9 +104,9 @@ export function CoreSkills() {
                                     })}
                                 </div>
                             </div>
-                        </ScrollReveal>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

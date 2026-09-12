@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { CheckCircle2, Loader2, Send, Briefcase, Users, HelpCircle, Check, Mail, ChevronDown, Home, Building2, MessageSquare } from "lucide-react";
+import { CheckCircle2, Loader2, Send, HelpCircle, Check, Mail, ChevronDown, Home, Building2, MessageSquare } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { STAGGER_CONTAINER_VARIANTS, VIEWPORT_CONFIG } from "@/lib/motion";
+import { STAGGER_NORMAL, VIEWPORT, FADE_UP } from "@/lib/motion";
 import { z } from "zod";
 
 
@@ -113,72 +113,76 @@ export function Contact() {
     };
 
 
-    const inputClasses = "w-full p-3.5 rounded-input border border-border-highlight focus:ring-2 focus:ring-primary outline-none transition-all bg-surface text-foreground placeholder:text-muted-foreground";
+    const inputClasses = "w-full p-3.5 rounded-micro border border-border focus:ring-2 focus:ring-accent outline-none transition-all bg-surface text-foreground placeholder:text-muted-foreground";
 
     return (
         <motion.section
             id="contact"
             initial="hidden"
             whileInView="visible"
-            viewport={VIEWPORT_CONFIG}
-            variants={STAGGER_CONTAINER_VARIANTS}
+            viewport={VIEWPORT}
+            variants={STAGGER_NORMAL}
             className="py-section md:py-section-lg border-t border-border bg-page"
         >
             <div className="container mx-auto px-6 max-w-6xl">
-                <SectionHeading
-                    title="Let's Connect"
-                    subtitle="Whether you are planning a residential build, a commercial fit-out, or simply need a consultation, I'd love to hear from you."
-                    className="mb-10"
-                />
+                <motion.div variants={FADE_UP}>
+                    <SectionHeading
+                        title="Let's Connect"
+                        subtitle="Whether you are planning a residential build, a commercial fit-out, or simply need a consultation, I'd love to hear from you."
+                        className="mb-10"
+                    />
+                </motion.div>
 
-                <div className="w-full max-w-lg mx-auto">
+                <div className="w-full max-w-2xl mx-auto">
                     {/* Direct Contact Cards - Zero Friction */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                         {/* Email Card */}
-                        <a
+                        <motion.a
+                            variants={FADE_UP}
                             href="mailto:erickwanjohi30@gmail.com"
-                            className="flex items-center gap-4 p-4 rounded-card bg-surface border border-border hover:bg-surface-elevated hover:border-border-highlight transition-all group"
+                            className="flex items-center gap-4 p-4 rounded-micro bg-surface border border-border hover:bg-surface-elevated hover:border-border-hover transition-all group"
                         >
-                            <div className="h-10 w-10 shrink-0 rounded-inner bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                            <div className="h-10 w-10 shrink-0 rounded-micro bg-surface-elevated flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                 <Mail className="h-5 w-5" />
                             </div>
                             <div>
                                 <h3 className="text-sm font-medium text-foreground/80 group-hover:text-foreground">Email Me</h3>
                                 <p className="text-xs text-muted-foreground">erickwanjohi30@gmail.com</p>
                             </div>
-                        </a>
+                        </motion.a>
 
                         {/* WhatsApp Card */}
-                        <a
+                        <motion.a
+                            variants={FADE_UP}
                             href="https://wa.me/254741352159"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-4 p-4 rounded-card bg-surface border border-border hover:bg-surface-elevated hover:border-border-highlight transition-all group"
+                            className="flex items-center gap-4 p-4 rounded-micro bg-surface border border-border hover:bg-surface-elevated hover:border-border-hover transition-all group"
                         >
-                            <div className="h-10 w-10 shrink-0 rounded-inner bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                            <div className="h-10 w-10 shrink-0 rounded-micro bg-surface-elevated flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                 <FaWhatsapp className="h-5 w-5" />
                             </div>
                             <div>
                                 <h3 className="text-sm font-medium text-foreground/80 group-hover:text-foreground">WhatsApp</h3>
                                 <p className="text-xs text-muted-foreground">+254 741 352 159</p>
                             </div>
-                        </a>
+                        </motion.a>
                     </div>
 
-                    <div className="bg-surface p-6 md:p-6 rounded-card border border-border">
+                    <motion.div variants={FADE_UP} className="bg-surface p-6 md:p-8 rounded-micro border border-border">
                         {showSuccess ? (
                             <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-                                <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <div className="h-12 w-12 rounded-full bg-surface-elevated flex items-center justify-center text-accent">
                                     <CheckCircle2 className="h-6 w-6" />
                                 </div>
-                                <h3 className="text-xl font-semibold text-foreground">Message Sent!</h3>
+                                <h3 className="text-xl font-serif font-normal text-foreground">Message Sent!</h3>
                                 <p className="text-muted-foreground">
                                     Thanks for reaching out. I&apos;ll be in touch shortly.
                                 </p>
                                 <Button
                                     variant="outline"
                                     onClick={() => setShowSuccess(false)}
-                                    className="mt-4 border-border-highlight text-foreground/70 hover:bg-surface-elevated hover:text-foreground"
+                                    className="mt-4 border-border-hover text-foreground/70 hover:bg-surface-elevated hover:text-foreground rounded-none"
                                 >
                                     Send another message
                                 </Button>
@@ -196,10 +200,10 @@ export function Contact() {
                                         type="text"
                                         placeholder="Your full name"
                                         disabled={isSubmitting}
-                                        className={cn(inputClasses, errors.name && "border-red-500 focus:ring-red-500")}
+                                        className={cn(inputClasses, errors.name && "border-destructive focus:ring-destructive")}
                                     />
                                     {errors.name && (
-                                        <p className="text-sm text-red-400">{errors.name[0]}</p>
+                                        <p className="text-sm text-destructive">{errors.name[0]}</p>
                                     )}
                                 </div>
 
@@ -214,10 +218,10 @@ export function Contact() {
                                         type="email"
                                         placeholder="caleb@example.com"
                                         disabled={isSubmitting}
-                                        className={cn(inputClasses, errors.email && "border-red-500 focus:ring-red-500")}
+                                        className={cn(inputClasses, errors.email && "border-destructive focus:ring-destructive")}
                                     />
                                     {errors.email && (
-                                        <p className="text-sm text-red-400">{errors.email[0]}</p>
+                                        <p className="text-sm text-destructive">{errors.email[0]}</p>
                                     )}
                                 </div>
 
@@ -245,7 +249,7 @@ export function Contact() {
                                             className={cn(
                                                 inputClasses,
                                                 "cursor-pointer flex items-center justify-between",
-                                                errors.type && "border-red-500 focus:ring-red-500",
+                                                errors.type && "border-destructive focus:ring-destructive",
                                                 isSubmitting && "opacity-70 cursor-not-allowed"
                                             )}
                                         >
@@ -278,7 +282,7 @@ export function Contact() {
                                                     animate={{ opacity: 1, y: 0 }}
                                                     exit={{ opacity: 0, y: -8 }}
                                                     transition={{ duration: 0.15 }}
-                                                    className="absolute top-full left-0 right-0 mt-2 z-20 bg-surface border border-border rounded-input overflow-hidden shadow-xl"
+                                                    className="absolute top-full left-0 right-0 mt-2 z-20 bg-surface border border-border rounded-micro overflow-hidden"
                                                 >
                                                     {inquiryOptions.map((option) => {
                                                         const Icon = option.icon;
@@ -294,7 +298,7 @@ export function Contact() {
                                                                 className={cn(
                                                                     "flex items-center justify-between px-4 py-3 cursor-pointer transition-colors",
                                                                     isSelected
-                                                                        ? "bg-primary/10 text-primary"
+                                                                        ? "bg-surface-elevated text-accent"
                                                                         : "text-foreground/70 hover:bg-surface-elevated"
                                                                 )}
                                                             >
@@ -314,7 +318,7 @@ export function Contact() {
                                     </div>
 
                                     {errors.type && (
-                                        <p className="text-sm text-red-400">{errors.type[0]}</p>
+                                        <p className="text-sm text-destructive">{errors.type[0]}</p>
                                     )}
                                 </div>
 
@@ -329,15 +333,15 @@ export function Contact() {
                                         placeholder="Tell me about your project..."
                                         rows={4}
                                         disabled={isSubmitting}
-                                        className={cn(inputClasses, errors.message && "border-red-500 focus:ring-red-500")}
+                                        className={cn(inputClasses, errors.message && "border-destructive focus:ring-destructive")}
                                     />
                                     {errors.message && (
-                                        <p className="text-sm text-red-400">{errors.message[0]}</p>
+                                        <p className="text-sm text-destructive">{errors.message[0]}</p>
                                     )}
                                 </div>
 
                                 {errorMessage && (
-                                    <div className="p-3 bg-red-900/20 border border-red-900/50 rounded-inner text-sm text-red-400">
+                                    <div className="p-3 bg-red-900/20 border border-red-900/50 rounded-micro text-sm text-red-400">
                                         {errorMessage}
                                     </div>
                                 )}
@@ -346,7 +350,7 @@ export function Contact() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full h-auto py-4 md:py-3 inline-flex items-center justify-center rounded-button bg-foreground text-page text-sm font-semibold uppercase tracking-wide shadow-md shadow-black/[var(--shadow-strength)] transition-colors hover:bg-foreground/90 disabled:opacity-70 disabled:cursor-not-allowed active:scale-[0.98]"
+                                    className="w-full h-auto py-4 md:py-4 inline-flex items-center justify-center rounded-none bg-foreground text-page text-sm font-medium uppercase tracking-[0.1em] transition-colors hover:bg-foreground/90 disabled:opacity-70 disabled:cursor-not-allowed active:scale-[0.98]"
                                 >
                                     <span className="flex items-center gap-2">
                                         {isSubmitting ? (
@@ -371,7 +375,7 @@ export function Contact() {
 
                             </form>
                         )}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </motion.section>
