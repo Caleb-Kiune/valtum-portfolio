@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const NAV_LINKS = [
-    { name: "Work", href: "#work" },
+    { name: "Projects", href: "#projects" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Reviews", href: "#testimonials" },

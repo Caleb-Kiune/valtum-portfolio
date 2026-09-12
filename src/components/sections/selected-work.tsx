@@ -6,7 +6,7 @@ import { PROJECTS } from "@/lib/data/projects";
 
 export function SelectedWork() {
     return (
-        <section id="work" className="relative py-section md:py-section-lg bg-page border-t border-border">
+        <section id="projects" className="relative py-section md:py-section-lg bg-page border-t border-border">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 mx-auto px-6 max-w-6xl">
                 <ScrollReveal>

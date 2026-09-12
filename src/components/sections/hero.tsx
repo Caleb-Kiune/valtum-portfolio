@@ -97,7 +97,7 @@ export function Hero() {
                             </a>
 
                             <a
-                                href="#work"
+                                href="#projects"
                                 className="inline-flex items-center justify-center h-12 px-8 rounded-button border border-border bg-surface text-foreground/70 text-sm font-medium hover:bg-surface-elevated hover:text-foreground transition-colors active:scale-95"
                             >
                                 View Work

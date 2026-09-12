@@ -104,7 +104,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Footer: Case study link */}
         <Link
-          href={`/work/${project.slug}`}
+          href={`/projects/${project.slug}`}
           className="mt-auto pt-4 border-t border-glass/5 flex items-center justify-between active:scale-[0.98] transition-transform"
           aria-label={`View case study for ${project.title}`}
         >
