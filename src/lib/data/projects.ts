@@ -1,6 +1,13 @@
 import { ArchitecturalProject } from "@/lib/types/project";
 
-const placeholderImage = "/valtum-resources/WhatsApp Image 2026-09-10 at 12.01.01 (1).jpeg"; // We can use one of the logos/images as placeholder for now, or just an empty string if using standard src. We'll use a Next.js generic path or empty string but since Next/Image needs a valid src, let's use the provided JPEG or just standard placeholders.
+const comm1 = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80";
+const comm2 = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80";
+const comm3 = "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80";
+
+const res1 = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80";
+const res2 = "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80";
+const res3 = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80";
+const res4 = "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&q=80";
 
 export const PROJECTS: ArchitecturalProject[] = [
   {
@@ -9,11 +16,12 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "GA Insurance",
     tag: "Commercial",
     subtitle: "Commercial Project, Upperhill",
-    heroImage: placeholderImage,
+    heroImage: comm1,
+    gallery: [comm2, comm3, comm1],
     client: "GA Insurance",
     location: "Upperhill, Nairobi",
     type: "Commercial project",
-    designStyle: "Contemporary corporate concept with bold urban character",
+    designStyle: "Contemporary corporate concept",
     timeline: "2024",
   },
   {
@@ -22,7 +30,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "SGA Security",
     tag: "Commercial",
     subtitle: "Commercial Project, Nairobi",
-    heroImage: placeholderImage,
+    heroImage: comm3,
+    gallery: [comm1, comm2, comm3],
     client: "SGA Security",
     location: "Mombasa rd, Nairobi",
     type: "Commercial project",
@@ -35,7 +44,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "ONQ Workspaces",
     tag: "Commercial",
     subtitle: "Commercial Project, Nyeri",
-    heroImage: placeholderImage,
+    heroImage: comm3,
+    gallery: [comm2, comm1, comm3],
     client: "ONQ",
     location: "Nyeri",
     type: "Commercial project",
@@ -49,7 +59,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "Zaria House",
     tag: "Residential",
     subtitle: "Residential Project, Tatu City",
-    heroImage: placeholderImage,
+    heroImage: res4,
+    gallery: [res2, res3, res4],
     client: "Private Client",
     location: "Tatu City, Nairobi",
     type: "Residential project",
@@ -62,7 +73,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "Sultan Palace",
     tag: "Residential",
     subtitle: "Residential Project, Vipingo",
-    heroImage: placeholderImage,
+    heroImage: res1,
+    gallery: [res2, res3, res1],
     client: "Private Client",
     location: "Vipingo ridge, Kilifi",
     type: "Residential project",
@@ -75,7 +87,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "Victoria's Residence",
     tag: "Residential",
     subtitle: "Residential Project, Nairobi",
-    heroImage: placeholderImage,
+    heroImage: res4,
+    gallery: [res1, res2, res4],
     client: "Victoria",
     location: "Nairobi",
     type: "Residential project",
@@ -88,7 +101,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "Tumel Boardroom",
     tag: "Institutional",
     subtitle: "Institutional Project",
-    heroImage: placeholderImage,
+    heroImage: comm2,
+    gallery: [comm1, comm3, comm2],
     client: "Tumel",
     location: "Mombasa",
     type: "Institutional project",
@@ -101,7 +115,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "Wagura's Kitchen",
     tag: "Residential",
     subtitle: "Residential Project",
-    heroImage: placeholderImage,
+    heroImage: res2,
+    gallery: [res3, res1, res2],
     client: "Wagura",
     location: "Thika, Kiambu",
     type: "Residential project",
@@ -114,7 +129,8 @@ export const PROJECTS: ArchitecturalProject[] = [
     title: "Residential Development",
     tag: "Residential",
     subtitle: "Residential Project",
-    heroImage: placeholderImage,
+    heroImage: res3,
+    gallery: [res4, res1, res3],
     client: "Private Client",
     location: "Kirigiti, Kiambu",
     type: "Residential project",

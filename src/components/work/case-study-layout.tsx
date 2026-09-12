@@ -132,16 +132,44 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                                 />
                             </div>
 
-                            {/* Gallery Images / Placeholders */}
-                            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated flex items-center justify-center shadow-sm">
-                                <span className="text-sm text-muted-foreground/60 font-medium">Gallery View 1</span>
-                            </div>
-                            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated flex items-center justify-center shadow-sm">
-                                <span className="text-sm text-muted-foreground/60 font-medium">Gallery View 2</span>
-                            </div>
-                            <div className="md:col-span-2 relative w-full aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated flex items-center justify-center shadow-sm">
-                                <span className="text-sm text-muted-foreground/60 font-medium">Full Width Detail</span>
-                            </div>
+                            {/* Gallery Images */}
+                            {project.gallery && project.gallery.length > 0 && (
+                                <>
+                                    {project.gallery[0] && (
+                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated shadow-sm">
+                                            <Image
+                                                src={project.gallery[0]}
+                                                alt={`${project.title} - Gallery 1`}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 1024px) 100vw, 33vw"
+                                            />
+                                        </div>
+                                    )}
+                                    {project.gallery[1] && (
+                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated shadow-sm">
+                                            <Image
+                                                src={project.gallery[1]}
+                                                alt={`${project.title} - Gallery 2`}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 1024px) 100vw, 33vw"
+                                            />
+                                        </div>
+                                    )}
+                                    {project.gallery[2] && (
+                                        <div className="md:col-span-2 relative w-full aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated shadow-sm">
+                                            <Image
+                                                src={project.gallery[2]}
+                                                alt={`${project.title} - Detail View`}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 1024px) 100vw, 66vw"
+                                            />
+                                        </div>
+                                    )}
+                                </>
+                            )}
                         </div>
                     </div>
 
