@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             description: project.subtitle,
             images: [
                 {
-                    url: project.heroImage.src,
+                    url: typeof project.heroImage === 'string' ? project.heroImage : project.heroImage.src,
                     width: 1200,
                     height: 630,
                     alt: project.title,

@@ -31,10 +31,10 @@ export function SelectedWork() {
                                     title: project.title,
                                     tag: project.tag,
                                     metric: project.subtitle,
-                                    stack: project.stack,
+                                    stack: [], // Patched
                                     imageSrc: project.heroImage,
                                     slug: project.slug,
-                                    liveUrl: project.liveUrl,
+                                    liveUrl: undefined, // Patched
                                 }}
                             />
                         </ScrollReveal>

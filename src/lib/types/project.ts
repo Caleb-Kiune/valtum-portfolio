@@ -1,28 +1,23 @@
 import { StaticImageData } from "next/image";
 
-export interface ProjectCaseStudy {
+export interface ArchitecturalProject {
     id: string; // Internal ID
-    slug: string; // URL friendly slug (e.g., "kentab-insurance")
+    slug: string; // URL friendly slug
     title: string;
-    tag: string; // Small uppercase category (e.g. "FinTech")
-    subtitle: string; // The Hook (Big text on card)
-    heroImage: StaticImageData;
+    tag: string; // Category like "Commercial", "Residential"
+    subtitle: string; // Hook text
+    heroImage: StaticImageData | string; // Allow string for placeholders
 
-    // The "At A Glance" Sidebar Data
+    // Architectural Data
     client: string;
-    role: string;
+    location: string;
+    type: string; // e.g., "Commercial project"
+    designStyle: string; // e.g., "Modern coastal"
+    siteArea?: string; // Optional e.g., "465m²"
     timeline: string;
-    stack: string[]; // Tech used
 
-    // Deep Dive Data
-    challenge: string[]; // Business Problem (Array of paragraphs)
-    solution: string[]; // Technical Approach (Array of paragraphs)
-
-    // Media
-    // gallery: StaticImageData[]; // Removed as unused
-
-    // Links
-    liveUrl?: string; // "Visit Live Site"
-    repoUrl?: string; // "View Source" (Optional)
-    technicalHighlights: string[];
+    // Optional arrays for future use (empty strings/placeholders for now)
+    gallery?: (StaticImageData | string)[];
+    floorPlans?: (StaticImageData | string)[];
+    moodboard?: (StaticImageData | string)[];
 }

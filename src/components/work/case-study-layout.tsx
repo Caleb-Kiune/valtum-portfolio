@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectCaseStudy } from "@/lib/types/project";
+import { ArchitecturalProject } from "@/lib/types/project";
 import { ArrowUpRight, Github, ArrowLeft, Layers, Calendar, User, Building2, Cpu, CheckSquare } from "lucide-react";
 
 
 interface CaseStudyLayoutProps {
-    project: ProjectCaseStudy;
+    project: ArchitecturalProject;
 }
 
 export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
@@ -32,28 +32,7 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        {project.repoUrl && (
-                            <a
-                                href={project.repoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 text-muted-foreground hover:text-foreground hover:bg-glass/5 rounded-button transition-all"
-                                title="View Source Code"
-                            >
-                                <Github className="w-5 h-5" />
-                            </a>
-                        )}
-                        {project.liveUrl && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-emerald-400 text-white text-sm font-medium rounded-button transition-colors shadow-md shadow-black/[var(--shadow-strength)]"
-                            >
-                                Live Site
-                                <ArrowUpRight className="w-4 h-4" />
-                            </a>
-                        )}
+                        {/* Patched */}
                     </div>
                 </div>
             </header>
@@ -70,9 +49,10 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                             <Image
                                 src={project.heroImage}
                                 alt={project.title}
-                                className="w-full h-auto object-cover"
+                                className="w-full h-auto object-cover aspect-video"
+                                width={1200}
+                                height={675}
                                 priority
-                                placeholder="blur"
                                 sizes="(max-width: 768px) 100vw, 33vw"
                             />
                         </div>
@@ -92,8 +72,8 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                                 <div className="flex items-start gap-3">
                                     <User className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
                                     <div>
-                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-1">Role</dt>
-                                        <dd className="text-sm text-foreground/80 font-medium leading-tight">{project.role}</dd>
+                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-1">Role / Type</dt>
+                                        <dd className="text-sm text-foreground/80 font-medium leading-tight">{project.type}</dd>
                                     </div>
                                 </div>
                                 <div className="h-[1px] bg-glass/5 w-full hidden lg:block" />
@@ -110,16 +90,18 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                                 <div className="flex items-start gap-3 col-span-2 lg:col-span-1">
                                     <Layers className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
                                     <div className="w-full">
-                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-2">Tech Stack</dt>
+                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-2">Style / Location</dt>
                                         <dd className="flex flex-wrap gap-1.5">
-                                            {project.stack.map((tech) => (
                                                 <span
-                                                    key={tech}
                                                     className="px-2 py-1 bg-glass/5 border border-glass/10 rounded-sm text-[11px] text-primary/90 font-medium whitespace-nowrap"
                                                 >
-                                                    {tech}
+                                                    {project.designStyle}
                                                 </span>
-                                            ))}
+                                                <span
+                                                    className="px-2 py-1 bg-glass/5 border border-glass/10 rounded-sm text-[11px] text-primary/90 font-medium whitespace-nowrap"
+                                                >
+                                                    {project.location}
+                                                </span>
                                         </dd>
                                     </div>
                                 </div>
@@ -134,50 +116,12 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
 
                         {/* Narrative Grid (Side-by-Side) */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Challenge */}
-                            <div className="bg-surface p-5 rounded-card border border-border">
-                                <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-primary/20 ring-1 ring-primary" />
-                                    The Challenge
-                                </h3>
-                                <div className="space-y-3 text-sm text-foreground/70 leading-relaxed">
-                                    {project.challenge.map((p, i) => (
-                                        <p key={i}>{p}</p>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Solution */}
-                            <div className="bg-surface p-5 rounded-card border border-border">
-                                <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-emerald-400/20 ring-1 ring-emerald-400" />
-                                    The Solution
-                                </h3>
-                                <div className="space-y-3 text-sm text-foreground/70 leading-relaxed">
-                                    {project.solution.map((p, i) => (
-                                        <p key={i}>{p}</p>
-                                    ))}
-                                </div>
-                            </div>
+                            {/* Patched */}
                         </div>
 
                         {/* Technical Highlights (Horizontal Feature List) */}
                         <div className="bg-surface p-5 rounded-card border border-border">
-                            <div className="flex items-center gap-3 mb-4">
-                                <Cpu className="w-4 h-4 text-primary" />
-                                <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">Technical Highlights</h3>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {project.technicalHighlights.map((point, index) => (
-                                    <div key={index} className="flex gap-3 items-start p-3 rounded-md bg-glass/5 border border-glass/10">
-                                        <CheckSquare className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                                        <p className="text-xs text-foreground/70 leading-relaxed font-medium">
-                                            {point}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
+                            {/* Patched */}
                         </div>
                     </div>
                 </div>
