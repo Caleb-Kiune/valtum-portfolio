@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { Menu, X, MessageSquare, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const NAV_LINKS = [
     { name: "Projects", href: "#projects" },
@@ -72,7 +71,7 @@ export function Header() {
 
                 {/* DESKTOP CTA - Right Wing */}
                 <div className="hidden md:flex items-center gap-3">
-                    <ThemeToggle />
+
                     <Link
                         href="#contact"
                         className={cn(
@@ -123,12 +122,8 @@ export function Header() {
                             ))}
                         </div>
 
-                        {/* Mobile Theme Toggle + CTA */}
+                        {/* Mobile CTA */}
                         <div className="mt-8 space-y-4">
-                            <div className="flex items-center justify-between px-2 py-3 border-b border-border-subtle">
-                                <span className="text-sm text-muted-foreground font-medium">Theme</span>
-                                <ThemeToggle />
-                            </div>
                             <Link
                                 href="#contact"
                                 onClick={() => setIsMobileMenuOpen(false)}

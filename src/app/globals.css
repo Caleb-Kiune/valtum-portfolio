@@ -8,124 +8,41 @@
     color-scheme: light;
 
     /* ──────────────────────────────────────────────
-       LIGHT THEME
-       Harmonious complement to the dark palette.
-       Uses the Tailwind slate scale for neutrals.
+       LIGHT THEME (ARCHITECTURAL DEFAULT)
+       Minimalist warm white with Deep Teal and Mustard Gold.
        ────────────────────────────────────────────── */
-    --background: 0 0% 100%;
-    /* white */
-    --foreground: 222 47% 11%;
-    /* slate-900 (#0f172a) */
+    --background: 0 0% 98%; /* #FAFAFA warm white */
+    --foreground: 222 47% 11%; /* slate-900 */
 
-    --surface: 210 40% 98%;
-    /* slate-50  (#f8fafc) */
-    --surface-elevated: 210 40% 96%;
-    /* slate-100 (#f1f5f9) */
+    --surface: 0 0% 100%; /* Pure white */
+    --surface-elevated: 210 40% 96%; /* slate-100 */
 
     --card: 0 0% 100%;
-    /* white */
     --card-foreground: 222 47% 11%;
-    /* slate-900 */
     --popover: 0 0% 100%;
-    /* white */
     --popover-foreground: 222 47% 11%;
 
     --muted: 210 40% 96%;
-    /* slate-100 */
     --muted-foreground: 215 16% 47%;
-    /* slate-500 (#64748b) */
 
     --border: 214 32% 91%;
-    /* slate-200 (#e2e8f0) */
     --border-subtle: 210 40% 96%;
-    /* slate-100 */
     --border-highlight: 213 27% 84%;
-    /* slate-300 (#cbd5e1) */
     --input: 214 32% 91%;
-    /* slate-200 */
 
-    --ring: 160 84% 39%;
-    /* emerald-500 */
-    --primary: 160 84% 39%;
-    /* emerald-500 (#10b981) */
+    --ring: 176 80% 20%;
+    --primary: 176 80% 20%; /* Deep Teal / Dark Green */
     --primary-foreground: 0 0% 100%;
-    /* white */
-    --accent: 38 92% 50%;
-    /* amber-500  (#F59E0B) */
-    --accent-foreground: 222 47% 11%;
-    /* slate-900 */
+    --accent: 43 74% 49%; /* Mustard Yellow / Gold */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Glass/overlay & shadows — black-based for light mode */
+    /* Glass/overlay & shadows */
     --glass-bg: 0 0% 0%;
     --glass-border: 0 0% 0%;
     --shadow-color: 0 0% 0%;
     --shadow-strength: 0.08;
-  }
-
-  .dark {
-    color-scheme: dark;
-
-    /* ──────────────────────────────────────────────
-       DARK THEME — CANONICAL VALUES
-       Every value traced from the ORIGINAL pre-theme
-       tailwind.config.ts (commit b2827ec).
-       These must NEVER be approximated or reinterpreted.
-       ────────────────────────────────────────────── */
-    --background: 229 84% 5%;
-    /* slate-950 (#020617) — original: colors.slate[950] */
-    --foreground: 214 32% 91%;
-    /* slate-200 (#E2E8F0) — original: "#E2E8F0" */
-
-    --surface: 222 47% 11%;
-    /* slate-900 (#0f172a) — original: colors.slate[900] */
-    --surface-elevated: 217 33% 17%;
-    /* slate-800 (#1e293b) — original: colors.slate[800] */
-
-    --card: 215 21% 11%;
-    /* #161B22 — original: "#161B22" */
-    --card-foreground: 214 32% 91%;
-    /* #E2E8F0 */
-    --popover: 225 21% 7%;
-    /* #0F1117 — original: "#0F1117" */
-    --popover-foreground: 214 32% 91%;
-
-    --muted: 217 33% 17%;
-    /* #1E293B — original: "#1E293B" */
-    --muted-foreground: 215 20% 65%;
-    /* slate-400 (#94a3b8) — components used text-slate-400 */
-
-    --border: 217 33% 17%;
-    /* slate-800 (#1e293b) — components used border-slate-800 */
-    --border-subtle: 222 47% 11%;
-    /* slate-900 (#0f172a) — for very subtle dividers */
-    --border-highlight: 215 25% 27%;
-    /* slate-700 (#334155) — components used hover:border-slate-700 */
-    --input: 217 33% 17%;
-    /* slate-800 */
-
-    --ring: 160 84% 39%;
-    /* emerald-500 */
-    --primary: 160 84% 39%;
-    /* emerald-500 (#10b981) */
-    --primary-foreground: 0 0% 100%;
-    /* white */
-    --accent: 38 92% 50%;
-    /* amber-500  (#F59E0B) */
-    --accent-foreground: 222 47% 11%;
-    /* #0F172A */
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
-
-    /* Glass/overlay & shadows — white-based for dark mode */
-    --glass-bg: 0 0% 100%;
-    /* white — bg-glass/5 = rgba(255,255,255,0.05) */
-    --glass-border: 0 0% 100%;
-    /* white — border-glass/10 = rgba(255,255,255,0.10) */
-    --shadow-color: 0 0% 0%;
-    --shadow-strength: 0.3;
-    /* original: shadow-black/30 */
   }
 
   body {
