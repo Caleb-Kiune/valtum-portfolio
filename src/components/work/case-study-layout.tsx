@@ -1,20 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArchitecturalProject } from "@/lib/types/project";
-import { ArrowUpRight, Github, ArrowLeft, Layers, Calendar, User, Building2, Cpu, CheckSquare } from "lucide-react";
-
+import { ArrowLeft, Calendar, User, Building2, Layers } from "lucide-react";
 
 interface CaseStudyLayoutProps {
     project: ArchitecturalProject;
 }
 
 export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
+    const briefText = "This project required a meticulous balance of aesthetic vision and functional necessity. The design maximizes spatial efficiency while maintaining an expansive, luxurious feel, with a focus on natural light, seamless flow, and enduring material choices.";
+    
+    const materials = [
+        "Natural Oak Timber",
+        "Honed Limestone",
+        "Brushed Brass Fixtures",
+        "Matte Black Accents"
+    ];
+
+    const deliverables = [
+        "Concept Design & Moodboards",
+        "3D Rendering & Visualization",
+        "Detailed Construction Drawings",
+        "Site Coordination"
+    ];
+
     return (
-        <article className="min-h-screen bg-page pb-12 relative overflow-x-hidden">
+        <article className="min-h-screen bg-page pb-24 relative overflow-x-hidden">
             <div className="bg-noise fixed inset-0 z-0 pointer-events-none" />
 
-            {/* Compact Header Bar */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-page border-b border-border h-16 flex items-center">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-page/90 backdrop-blur-md border-b border-border/50 h-16 flex items-center">
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl flex items-center justify-between">
                     <div className="flex items-center gap-4 md:gap-6">
                         <Link
@@ -27,103 +41,110 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                         <h1 className="text-lg md:text-2xl font-display font-bold text-foreground tracking-tight truncate max-w-[150px] md:max-w-none">
                             {project.title}
                         </h1>
-                        <span className="hidden md:inline-block h-4 w-[1px] bg-glass/10" />
+                        <span className="hidden md:inline-block h-4 w-[1px] bg-border" />
                         <p className="hidden md:inline-block text-sm text-muted-foreground">{project.subtitle}</p>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                        {/* Patched */}
                     </div>
                 </div>
             </header>
 
-            {/* Main Dashboard Grid */}
-            <main className="container mx-auto px-4 md:px-6 max-w-7xl pt-20 md:pt-24 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-
-                    {/* Left Sidebar (col-span-4) */}
-                    <aside className="lg:col-span-4 space-y-6">
-                        {/* Project Preview */}
-                        {/* Project Preview */}
-                        <div className="w-full rounded-md overflow-hidden border border-border shadow-lg bg-surface">
-                            <Image
-                                src={project.heroImage}
-                                alt={project.title}
-                                className="w-full h-auto object-cover aspect-video"
-                                width={1200}
-                                height={675}
-                                priority
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                            />
+            <main className="container mx-auto px-4 md:px-6 max-w-7xl pt-24 md:pt-32 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+                    
+                    {/* LEFT COLUMN: INFO ANCHOR */}
+                    <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 h-fit">
+                        {/* Project DNA */}
+                        <div className="bg-surface-elevated p-6 rounded-2xl border border-border/50">
+                            <h2 className="text-2xl font-display font-bold text-foreground mb-6">{project.title}</h2>
+                            <div className="space-y-4">
+                                <div className="flex flex-col">
+                                    <dt className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Client</dt>
+                                    <dd className="text-sm text-foreground font-medium">{project.client}</dd>
+                                </div>
+                                <div className="h-[1px] bg-border/50 w-full" />
+                                <div className="flex flex-col">
+                                    <dt className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Role / Type</dt>
+                                    <dd className="text-sm text-foreground font-medium">{project.type}</dd>
+                                </div>
+                                <div className="h-[1px] bg-border/50 w-full" />
+                                <div className="flex flex-col">
+                                    <dt className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Timeline</dt>
+                                    <dd className="text-sm text-foreground font-medium">{project.timeline}</dd>
+                                </div>
+                                <div className="h-[1px] bg-border/50 w-full" />
+                                <div className="flex flex-col">
+                                    <dt className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Location & Style</dt>
+                                    <dd className="flex flex-wrap gap-2">
+                                        <span className="px-2.5 py-1 bg-surface border border-border-subtle rounded-md text-xs text-foreground/80 font-medium">
+                                            {project.location}
+                                        </span>
+                                        <span className="px-2.5 py-1 bg-surface border border-border-subtle rounded-md text-xs text-foreground/80 font-medium">
+                                            {project.designStyle}
+                                        </span>
+                                    </dd>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Project DNA (Vertical Impact Grid) */}
-                        <div className="bg-surface p-4 rounded-card border border-border">
-                            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-5">
-                                <div className="flex items-start gap-3">
-                                    <Building2 className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                                    <div>
-                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-1">Client</dt>
-                                        <dd className="text-sm text-foreground/80 font-medium leading-tight">{project.client}</dd>
-                                    </div>
-                                </div>
-                                <div className="h-[1px] bg-glass/5 w-full hidden lg:block" />
+                        {/* The Brief */}
+                        <div className="bg-surface p-6 rounded-2xl border border-border/50">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">The Brief</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{briefText}</p>
+                        </div>
 
-                                <div className="flex items-start gap-3">
-                                    <User className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                                    <div>
-                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-1">Role / Type</dt>
-                                        <dd className="text-sm text-foreground/80 font-medium leading-tight">{project.type}</dd>
-                                    </div>
-                                </div>
-                                <div className="h-[1px] bg-glass/5 w-full hidden lg:block" />
-
-                                <div className="flex items-start gap-3">
-                                    <Calendar className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                                    <div>
-                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-1">Timeline</dt>
-                                        <dd className="text-sm text-foreground/80 font-medium leading-tight">{project.timeline}</dd>
-                                    </div>
-                                </div>
-                                <div className="h-[1px] bg-glass/5 w-full hidden lg:block" />
-
-                                <div className="flex items-start gap-3 col-span-2 lg:col-span-1">
-                                    <Layers className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                                    <div className="w-full">
-                                        <dt className="text-xs text-muted-foreground/80 uppercase tracking-wider mb-2">Style / Location</dt>
-                                        <dd className="flex flex-wrap gap-1.5">
-                                                <span
-                                                    className="px-2 py-1 bg-glass/5 border border-glass/10 rounded-sm text-[11px] text-primary/90 font-medium whitespace-nowrap"
-                                                >
-                                                    {project.designStyle}
-                                                </span>
-                                                <span
-                                                    className="px-2 py-1 bg-glass/5 border border-glass/10 rounded-sm text-[11px] text-primary/90 font-medium whitespace-nowrap"
-                                                >
-                                                    {project.location}
-                                                </span>
-                                        </dd>
-                                    </div>
-                                </div>
+                        {/* Materials & Deliverables */}
+                        <div className="bg-surface p-6 rounded-2xl border border-border/50 space-y-6">
+                            <div>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">Key Materials</h3>
+                                <ul className="space-y-2">
+                                    {materials.map((mat, i) => (
+                                        <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/60" /> {mat}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="h-[1px] bg-border/50 w-full" />
+                            <div>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">Deliverables</h3>
+                                <ul className="space-y-2">
+                                    {deliverables.map((del, i) => (
+                                        <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/60" /> {del}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </aside>
 
-                    {/* Right Content Area (col-span-8) */}
-                    <div className="lg:col-span-8 space-y-6">
+                    {/* RIGHT COLUMN: VISUAL BENTO */}
+                    <div className="lg:col-span-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Hero Image - Spans 2 cols on MD */}
+                            <div className="md:col-span-2 relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-border/50 bg-surface shadow-sm">
+                                <Image
+                                    src={project.heroImage}
+                                    alt={project.title}
+                                    fill
+                                    priority
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 66vw"
+                                />
+                            </div>
 
-
-
-                        {/* Narrative Grid (Side-by-Side) */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Patched */}
-                        </div>
-
-                        {/* Technical Highlights (Horizontal Feature List) */}
-                        <div className="bg-surface p-5 rounded-card border border-border">
-                            {/* Patched */}
+                            {/* Gallery Images / Placeholders */}
+                            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated flex items-center justify-center shadow-sm">
+                                <span className="text-sm text-muted-foreground/60 font-medium">Gallery View 1</span>
+                            </div>
+                            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated flex items-center justify-center shadow-sm">
+                                <span className="text-sm text-muted-foreground/60 font-medium">Gallery View 2</span>
+                            </div>
+                            <div className="md:col-span-2 relative w-full aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 bg-surface-elevated flex items-center justify-center shadow-sm">
+                                <span className="text-sm text-muted-foreground/60 font-medium">Full Width Detail</span>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </main>
         </article>

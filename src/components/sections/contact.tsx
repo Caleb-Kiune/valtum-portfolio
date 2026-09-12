@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { CheckCircle2, Loader2, Send, Briefcase, Users, HelpCircle, Check, Mail, ChevronDown } from "lucide-react";
+import { CheckCircle2, Loader2, Send, Briefcase, Users, HelpCircle, Check, Mail, ChevronDown, Home, Building2, MessageSquare } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,7 @@ import { z } from "zod";
 const formSchema = z.object({
     name: z.string().min(2, "Name is required"),
     email: z.string().email("Invalid email address"),
-    type: z.enum(["freelance", "fulltime", "other"], {
+    type: z.enum(["residential", "commercial", "consultation", "general"], {
         message: "Please select an inquiry type",
     }),
     message: z.string().min(5, "Message must be at least 5 characters"),
@@ -36,15 +36,16 @@ export function Contact() {
 
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedType, setSelectedType] = useState<"freelance" | "fulltime" | "other" | "">("");
+    const [selectedType, setSelectedType] = useState<"residential" | "commercial" | "consultation" | "general" | "">("");
 
 
 
     // Inquiry type options
     const inquiryOptions = [
-        { id: "freelance", label: "Custom Software Project", icon: Briefcase },
-        { id: "fulltime", label: "Hiring / Recruitment", icon: Users },
-        { id: "other", label: "General Inquiry", icon: HelpCircle },
+        { id: "residential", label: "Residential Project", icon: Home },
+        { id: "commercial", label: "Commercial Project", icon: Building2 },
+        { id: "consultation", label: "Consultation", icon: MessageSquare },
+        { id: "general", label: "General Inquiry", icon: HelpCircle },
     ];
 
     const selectedOption = inquiryOptions.find(opt => opt.id === selectedType);
@@ -287,7 +288,7 @@ export function Contact() {
                                                                 key={option.id}
                                                                 onClick={() => {
                                                                     // Explicitly casting string to the union type
-                                                                    setSelectedType(option.id as "freelance" | "fulltime" | "other");
+                                                                    setSelectedType(option.id as "residential" | "commercial" | "consultation" | "general");
                                                                     setIsOpen(false);
                                                                 }}
                                                                 className={cn(
