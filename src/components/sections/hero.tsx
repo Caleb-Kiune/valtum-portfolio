@@ -1,21 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useCallback } from "react";
-import { FADE_UP_VARIANTS, STAGGER_CONTAINER_VARIANTS } from "@/lib/motion";
+import { FADE_UP, STAGGER_NORMAL } from "@/lib/motion";
 
 export function Hero() {
     const sectionRef = useRef<HTMLElement>(null);
     const rafId = useRef<number>(0);
 
-    const { scrollYProgress } = useScroll({
+    const { scrollY, scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end start"],
     });
 
-    const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    const opacityFade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+    // Parallax effect: moves down 300px as user scrolls 1000px down
+    const yParallax = useTransform(scrollY, [0, 1000], [0, 300]);
 
     // Performance-optimized mousemove: rAF throttled + direct DOM update
     const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -47,84 +49,79 @@ export function Hero() {
     return (
         <section
             ref={sectionRef}
-            className="spotlight relative w-full overflow-hidden bg-page pt-28 pb-16 min-h-screen flex flex-col justify-center md:pt-28 md:pb-20"
+            className="spotlight relative w-full overflow-hidden min-h-svh flex flex-col justify-center bg-deep"
         >
-            <motion.div
-                style={{ opacity: opacityFade }}
-                className="container mx-auto px-6 max-w-7xl relative z-10"
-                variants={STAGGER_CONTAINER_VARIANTS}
-                initial="hidden"
-                animate="visible"
+            {/* Parallax Background Image */}
+            <motion.div 
+                className="absolute inset-0 w-full h-full"
+                style={{ y: yParallax }}
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <Image
+                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80"
+                    alt="Architectural Interior"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </motion.div>
 
-                    {/* LEFT COLUMN: The Pitch */}
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-8 md:space-y-6">
-                        <motion.h1
-                            variants={FADE_UP_VARIANTS}
-                            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight"
-                        >
-                            Thoughtful spaces.{" "}
-                            <span className="text-primary block mt-2">
-                                Timeless living.
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none" />
+
+            {/* Content Container positioned at bottom */}
+            <div className="absolute bottom-0 left-0 w-full z-20 pb-20 md:pb-32">
+                <motion.div
+                    style={{ opacity: opacityFade }}
+                    className="container mx-auto px-6 max-w-7xl"
+                    variants={STAGGER_NORMAL}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <div className="flex flex-col items-start text-left space-y-6">
+                        
+                        <motion.div variants={FADE_UP}>
+                            <span className="text-label-meta text-white/80">
+                                Interior Architecture
                             </span>
+                        </motion.div>
+
+                        <motion.h1
+                            variants={FADE_UP}
+                            className="font-serif text-display-hero text-white font-normal leading-tight"
+                        >
+                            Thoughtful spaces.<br/>
+                            Timeless living.
                         </motion.h1>
 
-                        <motion.p
-                            variants={FADE_UP_VARIANTS}
-                            className="text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed"
-                        >
-                            <span className="text-foreground/80 font-medium">Design. Detail. Purpose.</span> Providing comprehensive interior architecture and project management services.
-                            <span className="block mt-4 text-sm font-medium text-muted-foreground uppercase tracking-wider">
-                                Interior Architecture & Design
-                            </span>
-                        </motion.p>
-
-                        <motion.div
-                            variants={FADE_UP_VARIANTS}
-                            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2"
-                        >
-                            <a
-                                href="https://wa.me/254705774171?text=Hi%20Caleb,%20I%20checked%20out%20your%20portfolio."
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center h-12 px-8 rounded-button bg-whatsapp hover:bg-whatsapp/90 text-white text-sm font-semibold tracking-wide transition-colors active:scale-95"
-                            >
-                                <span className="flex items-center gap-2">
-                                    Chat on WhatsApp
-                                    <FaWhatsapp className="w-5 h-5" />
-                                </span>
-                            </a>
-
-                            <a
+                        <motion.div variants={FADE_UP} className="pt-4">
+                            <Link
                                 href="#projects"
-                                className="inline-flex items-center justify-center h-12 px-8 rounded-button border border-border bg-surface text-foreground/70 text-sm font-medium hover:bg-surface-elevated hover:text-foreground transition-colors active:scale-95"
+                                className="group inline-flex items-center gap-2 text-accent hover:text-white transition-colors uppercase tracking-widest text-sm font-medium"
                             >
-                                View Work
-                            </a>
+                                View Selected Work
+                                <span className="transform transition-transform group-hover:translate-x-1">→</span>
+                            </Link>
                         </motion.div>
-                    </div>
 
-                    {/* RIGHT COLUMN: Profile Photo */}
-                    <motion.div
-                        variants={FADE_UP_VARIANTS}
-                        className="relative hidden md:flex flex-col items-center justify-center max-h-[400px]"
-                    >
-                        <div className="relative w-[320px] h-[400px] lg:w-[380px] lg:h-[480px]">
-                            <div className="relative w-full h-full rounded-[2rem] border border-border-subtle overflow-hidden">
-                                <Image
-                                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80"
-                                    alt="Architectural Interior"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                    sizes="(max-width: 1024px) 320px, 380px"
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </motion.div>
+                    </div>
+                </motion.div>
+            </div>
+            
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-white/50 text-sm">
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                        duration: 1, 
+                        repeat: Infinity, 
+                        repeatType: "reverse", 
+                        ease: "easeInOut" 
+                    }}
+                >
+                    ↓
+                </motion.div>
+            </div>
         </section>
     );
 }
