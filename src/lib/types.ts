@@ -12,7 +12,7 @@ export interface Project {
     repoUrl?: string;
 }
 
-export type IconName = "Smartphone" | "Code" | "Zap" | "TrendingUp" | "Rocket" | "Layout" | "Server" | "Database" | "Globe";
+export type IconName = "Smartphone" | "Code" | "Zap" | "TrendingUp" | "Rocket" | "Layout" | "Server" | "Database" | "Globe" | "PenTool" | "Layers" | "Ruler" | "Building2";
 
 export interface Service {
     title: string;

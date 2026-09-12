@@ -2,18 +2,23 @@ import { Service } from "@/lib/types";
 
 export const services: Service[] = [
     {
-        title: "MVP Development",
-        description: "Turn your idea into a working product fast. I help startups and businesses validate concepts with lean, functional software.",
-        icon: "Zap"
+        title: "Space Planning",
+        description: "Transforming empty spaces into functional, beautiful environments tailored to your specific needs and lifestyle.",
+        icon: "PenTool"
     },
     {
-        title: "Custom Web Apps",
-        description: "Replace spreadsheets with software. I build dashboards and internal tools tailored to your specific workflow.",
-        icon: "Code"
+        title: "3D Modelling",
+        description: "Visualizing concepts with high-fidelity renders to give you a clear picture of the final build before construction begins.",
+        icon: "Layers"
     },
     {
-        title: "Mobile-First Optimization",
-        description: "Don't lose customers to slow loading screens. I build lightweight, fast-loading sites optimized for the Kenyan market.",
-        icon: "Smartphone"
+        title: "Technical Drawings",
+        description: "Providing precise, detailed architectural drawings and schematics to guide contractors and ensure accurate execution.",
+        icon: "Ruler"
+    },
+    {
+        title: "Site Coordination",
+        description: "Managing the realities of construction by bridging the gap between design intent and on-site implementation.",
+        icon: "Building2"
     }
 ];

@@ -1,23 +1,23 @@
 export const TESTIMONIALS = [
     {
         id: "t1",
-        name: "Tabitha Kibathi",
-        role: "Director",
-        company: "Kentab Insurance Agency",
-        quote: "The automated quoting engine Caleb built saved us hours of manual work every day. He understood complex insurance logic quickly and delivered a reliable solution.",
+        name: "David K.",
+        role: "Homeowner",
+        company: "Karen Residence",
+        quote: "Valtum transformed our empty plot into a stunning, functional home. The 3D models were incredibly accurate to the final build, making the process seamless.",
     },
     {
         id: "t2",
-        name: "Lydia Muthoni Kahuthu",
-        role: "Founder",
-        company: "Eco Plains Safaris",
-        quote: "Our booking conversion rate doubled after the mobile-first redesign. The site loads instantly even on 3G networks, which is crucial for our clients.",
+        name: "Sarah Wanjiku",
+        role: "Managing Director",
+        company: "Oasis Corporate Offices",
+        quote: "Erick's space planning completely revitalized our office. The technical drawings were precise, allowing the contractors to work without any delays.",
     },
     {
         id: "t3",
-        name: "Milkah Githinji",
-        role: "Business Owner",
-        company: "Happy Happy Feet",
-        quote: "The custom WhatsApp ordering system is a game changer for our local deliveries. It simplified our process and our customers love how easy it is to use.",
+        name: "James Omondi",
+        role: "Property Developer",
+        company: "Nairobi Luxury Apartments",
+        quote: "The site coordination provided by Valtum Interiors bridged the gap between our vision and the construction reality. Exceptional attention to detail.",
     }
 ];

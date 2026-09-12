@@ -1,7 +1,7 @@
 import { services } from '@/lib/constants/services';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
-import { Smartphone, Layout, Server, Database, Code, Globe, Zap, Rocket, TrendingUp } from 'lucide-react';
+import { Smartphone, Layout, Server, Database, Code, Globe, Zap, Rocket, TrendingUp, PenTool, Layers, Ruler, Building2 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 const IconMap: Record<string, LucideIcon> = {
@@ -14,6 +14,10 @@ const IconMap: Record<string, LucideIcon> = {
     "Zap": Zap,
     "Rocket": Rocket,
     "TrendingUp": TrendingUp,
+    "PenTool": PenTool,
+    "Layers": Layers,
+    "Ruler": Ruler,
+    "Building2": Building2,
 };
 
 export function Services() {

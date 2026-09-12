@@ -21,34 +21,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://calebkiune.vercel.app"),
+  metadataBase: new URL("https://valtuminteriors.com"), // Placeholder URL
   title: {
-    default: "Caleb Kiune | Full-Stack Developer & Technical Partner",
-    template: "%s | Caleb Kiune",
+    default: "Erick Mwangi W. | Interior Architect & Project Manager",
+    template: "%s | Erick Mwangi W.",
   },
-  description: "Senior Full-Stack Developer in Nairobi. Specializing in high-performance Next.js apps for Insurance, FinTech, and growing businesses.",
-  keywords: ["Next.js Developer", "Nairobi Tech", "Freelance Software Engineer", "React", "T3 Stack", "Web Development Kenya"],
-  authors: [{ name: "Caleb Kiune" }],
+  description: "Erick Mwangi W. | Interior Architect & Project Manager. Specializing in space planning, 3D modelling, and site coordination.",
+  keywords: ["Interior Architect", "Project Manager", "Valtum Interiors", "Space Planning", "3D Modelling", "Nairobi", "Architecture"],
+  authors: [{ name: "Erick Mwangi W." }],
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://calebkiune.vercel.app",
-    siteName: "Caleb Kiune Portfolio",
-    title: "Caleb Kiune | Technical Partner",
-    description: "Building production-ready web apps for startups and growing businesses. View my selected work.",
+    url: "https://valtuminteriors.com",
+    siteName: "Valtum Interiors",
+    title: "Erick Mwangi W. | Interior Architect & Project Manager",
+    description: "Erick Mwangi W. | Interior Architect & Project Manager. Specializing in space planning, 3D modelling, and site coordination.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Caleb Kiune Portfolio Preview",
+        alt: "Valtum Interiors Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caleb Kiune | Full-Stack Developer",
-    description: "Building production-ready web apps for startups and growing businesses.",
+    title: "Erick Mwangi W. | Interior Architect & Project Manager",
+    description: "Erick Mwangi W. | Interior Architect & Project Manager. Specializing in space planning, 3D modelling, and site coordination.",
     images: ["/og-image.jpg"],
   },
 };

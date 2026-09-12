@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa6";
-import { Download, ShieldCheck } from "lucide-react";
+import { FaInstagram, FaLinkedin, FaBehance, FaWhatsapp } from "react-icons/fa6";
+import { Mail, Phone } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function Footer() {
@@ -27,7 +27,7 @@ export function Footer() {
                                 </div>
 
                                 <p className="text-muted-foreground text-lg leading-relaxed">
-                                    Building <span className="text-foreground font-medium">resilient digital infrastructure</span> for Kenyan and global businesses.
+                                    Creating <span className="text-foreground font-medium">thoughtful spaces and timeless living</span> for residential and commercial clients.
                                 </p>
                             </div>
 
@@ -41,10 +41,10 @@ export function Footer() {
                         <div className="md:col-span-4 bg-surface border border-border rounded-card p-2">
                             <div className="grid grid-cols-2 gap-2 h-full">
                                 {[
-                                    { icon: FaGithub, href: "https://github.com/Caleb-Kiune", label: "GitHub" },
-                                    { icon: FaLinkedin, href: "https://www.linkedin.com/in/caleb-kiune-b356a6327/", label: "LinkedIn" },
-                                    { icon: FaTwitter, href: "https://x.com/calebkiune", label: "X" },
-                                    { icon: FaWhatsapp, href: "https://wa.me/254705774171", label: "WhatsApp" }
+                                    { icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                                    { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
+                                    { icon: FaBehance, href: "https://behance.net", label: "Behance" },
+                                    { icon: FaWhatsapp, href: "https://wa.me/254741352159", label: "WhatsApp" }
                                 ].map((social) => (
                                     <Link
                                         key={social.label}
@@ -61,30 +61,34 @@ export function Footer() {
 
                         {/* CARD 3: RESOURCES (Span 3) */}
                         <div className="md:col-span-3 flex flex-col gap-6">
-                            {/* CV Download */}
-                            <Link
-                                href="/caleb-kiune-cv.pdf"
-                                target="_blank"
+                            {/* Email Contact */}
+                            <a
+                                href="mailto:erickwanjohi30@gmail.com"
                                 className="flex-1 bg-surface border border-border rounded-card p-6 flex flex-col justify-center items-center gap-3 hover:border-border-highlight transition-colors group text-center"
                             >
                                 <div className="p-3 rounded-full bg-surface-elevated group-hover:bg-primary group-hover:text-black transition-all text-foreground/70">
-                                    <Download className="w-5 h-5" />
+                                    <Mail className="w-5 h-5" />
                                 </div>
-                                <span className="text-sm font-medium text-foreground">Download CV</span>
-                            </Link>
+                                <span className="text-sm font-medium text-foreground">erickwanjohi30@gmail.com</span>
+                            </a>
 
-                            {/* Legal Badge */}
-                            <div className="flex-1 bg-surface border border-border rounded-card p-6 flex flex-col justify-center items-center gap-2 text-center">
-                                <ShieldCheck className="w-5 h-5 text-primary" />
-                                <span className="text-xs text-muted-foreground/80">Data Privacy Compliant<br />(DPA 2019)</span>
-                            </div>
+                            {/* Phone Contact */}
+                            <a
+                                href="tel:+254741352159"
+                                className="flex-1 bg-surface border border-border rounded-card p-6 flex flex-col justify-center items-center gap-2 text-center hover:border-border-highlight transition-colors group"
+                            >
+                                <div className="p-3 rounded-full bg-surface-elevated group-hover:bg-primary group-hover:text-black transition-all text-foreground/70">
+                                    <Phone className="w-5 h-5" />
+                                </div>
+                                <span className="text-sm font-medium text-foreground">+254 741 352 159</span>
+                            </a>
                         </div>
                     </div>
                 </ScrollReveal>
 
                 {/* Copyright */}
                 <div className="border-t border-border pt-8 pb-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60 gap-4">
-                    <p>© {currentYear} Kiune Technologies.</p>
+                    <p>© {currentYear} Valtum Interiors & Construction Ltd.</p>
                     <p>All Rights Reserved.</p>
                 </div>
             </div>
@@ -92,7 +96,7 @@ export function Footer() {
             {/* Background Watermark */}
             <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none opacity-[0.02]">
                 <h1 className="text-[15vw] md:text-[12vw] font-bold text-foreground leading-none text-center tracking-tighter whitespace-nowrap select-none">
-                    KIUNE
+                    VALTUM
                 </h1>
             </div>
         </footer>

@@ -53,7 +53,7 @@ export function Header() {
                         setIsMobileMenuOpen(false);
                     }}
                 >
-                    CALEB KIUNE
+                    VALTUM INTERIORS
                 </Link>
 
                 {/* DESKTOP NAV - Minimalist Center */}
@@ -80,7 +80,7 @@ export function Header() {
                         )}
                     >
                         <span className="flex items-center gap-2">
-                            Let&apos;s Talk
+                            Book a Consultation
                             <MessageSquare className="h-4 w-4" />
                         </span>
                     </Link>
@@ -133,7 +133,7 @@ export function Header() {
                                 )}
                             >
                                 <span className="flex items-center justify-center gap-2">
-                                    Let&apos;s Talk
+                                    Book a Consultation
                                     <MessageSquare className="h-4 w-4" />
                                 </span>
                             </Link>
