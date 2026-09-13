@@ -65,19 +65,14 @@ export function About() {
                     <motion.div variants={FADE_UP} className="md:col-span-1">
                         <div className="bg-surface border border-border p-8 rounded-micro flex flex-col justify-between group hover:bg-surface-elevated hover:border-border-hover transition-colors h-full">
                             <div className="flex justify-between items-start">
-                                <div className="p-3 rounded-micro bg-surface-elevated group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                                    <MapPin className="w-6 h-6 text-foreground group-hover:text-accent-foreground" />
-                                </div>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-elevated border border-border">
-                                    <span className="inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                                    <span className="text-xs font-medium text-foreground/70">Active</span>
-                                </div>
+                                <MapPin className="w-6 h-6 text-accent" />
+                                <span className="text-label-meta text-muted-foreground tracking-widest">1°17'S, 36°49'E</span>
                             </div>
                             <div>
-                                <div className="text-2xl font-serif font-normal text-foreground mb-1">Nairobi, KE</div>
-                                <div className="text-sm text-muted-foreground/80 flex items-center gap-2">
-                                    <Clock className="w-3 h-3" /> UTC+3 (EAT)
-                                </div>
+                                <div className="text-2xl font-serif font-normal text-foreground mb-1">Nairobi, Kenya</div>
+                                <span className="text-sm text-muted-foreground/80 flex items-center gap-2">
+                                    <Clock className="w-4 h-4" /> Local Time: UTC+3
+                                </span>
                             </div>
                         </div>
                     </motion.div>
