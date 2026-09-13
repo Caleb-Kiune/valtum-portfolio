@@ -117,15 +117,14 @@ export function Contact() {
 
     return (
         <motion.section
-            id="contact"
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT}
             variants={STAGGER_NORMAL}
-            className="py-section md:py-section-lg border-t border-border bg-page scroll-mt-28"
+            className="py-section md:py-section-lg border-t border-border bg-page"
         >
             <div className="container mx-auto px-6 max-w-6xl">
-                <motion.div variants={FADE_UP}>
+                <motion.div id="contact" className="scroll-mt-28" variants={FADE_UP}>
                     <SectionHeading
                         title="Let's Connect"
                         subtitle="Whether you are planning a residential build, a commercial fit-out, or simply need a consultation, I'd love to hear from you."

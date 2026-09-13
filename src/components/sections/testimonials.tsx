@@ -8,10 +8,12 @@ import { FADE_UP, STAGGER_NORMAL, VIEWPORT } from "@/lib/motion";
 
 export function Testimonials() {
     return (
-        <section className="relative py-section md:py-section-lg border-y border-border bg-page scroll-mt-28" id="testimonials">
+        <section className="relative py-section md:py-section-lg border-y border-border bg-page">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 mx-auto px-6 max-w-6xl">
                 <motion.div
+                    id="testimonials"
+                    className="scroll-mt-28"
                     initial="hidden"
                     whileInView="visible"
                     viewport={VIEWPORT}

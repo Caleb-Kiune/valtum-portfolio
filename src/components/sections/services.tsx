@@ -25,10 +25,12 @@ const IconMap: Record<string, LucideIcon> = {
 
 export function Services() {
     return (
-        <section className="relative py-section border-y border-border bg-page scroll-mt-28" id="services">
+        <section className="relative py-section border-y border-border bg-page">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 px-6 mx-auto max-w-6xl">
                 <motion.div
+                    id="services"
+                    className="scroll-mt-28"
                     initial="hidden"
                     whileInView="visible"
                     viewport={VIEWPORT}

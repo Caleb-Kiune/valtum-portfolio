@@ -26,10 +26,12 @@ export function SelectedWork() {
     const [showArchive, setShowArchive] = useState(false);
 
     return (
-        <section id="projects" className="relative py-section md:py-section-lg bg-page border-t border-border scroll-mt-28">
+        <section className="relative py-section md:py-section-lg bg-page border-t border-border">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 mx-auto px-6 max-w-6xl">
                 <motion.div
+                    id="projects"
+                    className="scroll-mt-28"
                     initial="hidden"
                     whileInView="visible"
                     viewport={VIEWPORT}

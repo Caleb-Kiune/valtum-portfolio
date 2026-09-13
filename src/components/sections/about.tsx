@@ -6,17 +6,18 @@ import { FADE_UP, STAGGER_NORMAL, VIEWPORT } from "@/lib/motion";
 
 export function About() {
     return (
-        <section id="about" className="relative py-section md:py-section-lg bg-page border-t border-border scroll-mt-28">
+        <section className="relative py-section md:py-section-lg bg-page border-t border-border">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 mx-auto px-6 max-w-6xl">
 
                 {/* Section Header */}
                 <motion.div
+                    id="about"
                     initial="hidden"
                     whileInView="visible"
                     viewport={VIEWPORT}
                     variants={FADE_UP}
-                    className="mb-12 md:mb-16"
+                    className="mb-12 md:mb-16 scroll-mt-28"
                 >
                     <h2 className="font-serif text-display-lg font-normal text-foreground mb-4">
                         The Valtum Approach

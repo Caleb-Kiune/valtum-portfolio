@@ -37,8 +37,7 @@ const TECH_STACK: TechCategory[] = [
     {
         title: "Post-Production",
         items: [
-            { name: "Adobe Photoshop", description: "Image Editing", icon: Palette },
-            { name: "Adobe Illustrator", description: "Vector Graphics", icon: PenTool },
+            { name: "Adobe Creative Cloud", description: "Image & Vector Editing", icon: Palette },
             { name: "DaVinci Resolve", description: "Video Editing", icon: Video },
         ],
     },
