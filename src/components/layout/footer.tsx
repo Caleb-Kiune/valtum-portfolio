@@ -28,10 +28,12 @@ export function Footer() {
                         {/* Centered Content Block */}
                         <div className="flex-1 flex flex-col justify-center space-y-6">
 
-                            {/* Status Indicator */}
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-border-hover text-accent text-xs font-medium tracking-wide w-fit">
-                                <span className="inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                                <span className="text-foreground/70">Active &amp; Building</span>
+                            {/* Studio Status */}
+                            <div className="flex flex-col gap-3">
+                                <div className="w-10 h-px bg-accent" />
+                                <span className="text-sm tracking-wide text-foreground/70">
+                                    Now Booking Select Projects
+                                </span>
                             </div>
 
                             <p className="text-muted-foreground text-lg leading-relaxed">

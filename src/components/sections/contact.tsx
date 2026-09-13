@@ -122,7 +122,7 @@ export function Contact() {
             whileInView="visible"
             viewport={VIEWPORT}
             variants={STAGGER_NORMAL}
-            className="py-section md:py-section-lg border-t border-border bg-page"
+            className="py-section md:py-section-lg border-t border-border bg-page scroll-mt-28"
         >
             <div className="container mx-auto px-6 max-w-6xl">
                 <motion.div variants={FADE_UP}>

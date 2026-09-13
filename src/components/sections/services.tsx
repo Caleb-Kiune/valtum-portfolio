@@ -25,7 +25,7 @@ const IconMap: Record<string, LucideIcon> = {
 
 export function Services() {
     return (
-        <section className="relative py-section border-y border-border bg-page" id="services">
+        <section className="relative py-section border-y border-border bg-page scroll-mt-28" id="services">
             <div className="bg-noise" aria-hidden="true" />
             <div className="container relative z-10 px-6 mx-auto max-w-6xl">
                 <motion.div
@@ -46,7 +46,7 @@ export function Services() {
                     whileInView="visible"
                     viewport={VIEWPORT}
                     variants={STAGGER_NORMAL}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto"
                 >
                     {services.map((service, index) => {
                         const IconComponent = service.icon ? IconMap[service.icon] : Code;

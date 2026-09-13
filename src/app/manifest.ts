@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "Kiune Technologies",
-        short_name: "Kiune Tech",
-        description: "Reliable digital infrastructure for Kenyan businesses.",
+        name: "Valtum Interiors & Construction",
+        short_name: "Valtum",
+        description: "Interior Architecture & Project Management. Specializing in space planning, 3D modelling, and site coordination.",
         start_url: "/",
         display: "standalone",
-        background_color: "#0F172A",
-        theme_color: "#0F172A",
+        background_color: "#F7F5F0",
+        theme_color: "#1C1C1C",
         icons: [
             {
                 src: "/icon.svg",

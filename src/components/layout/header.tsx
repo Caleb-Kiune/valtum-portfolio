@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
@@ -14,6 +15,8 @@ const NAV_LINKS = [
 
 export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
     // ── Scroll-linked header morph ──
     const { scrollY } = useScroll();
@@ -87,9 +90,16 @@ export function Header() {
                             isMobileMenuOpen ? "text-foreground" : ""
                         }`}
                         onClick={(e) => {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: "smooth" });
                             setIsMobileMenuOpen(false);
+                            if (pathname === "/") {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                // Clear any active hash from URL
+                                if (window.location.hash) {
+                                    history.replaceState(null, "", "/");
+                                }
+                            }
+                            // On subpages: let the default Link navigation to "/" proceed
                         }}
                     >
                         Valtum
