@@ -66,7 +66,7 @@ export function About() {
                         <div className="bg-surface border border-border p-8 rounded-micro flex flex-col justify-between group hover:bg-surface-elevated hover:border-border-hover transition-colors h-full">
                             <div className="flex justify-between items-start">
                                 <MapPin className="w-6 h-6 text-accent" />
-                                <span className="text-label-meta text-muted-foreground tracking-widest">1°17'S, 36°49'E</span>
+                                <span className="text-label-meta text-muted-foreground tracking-widest">{"1°17'S, 36°49'E"}</span>
                             </div>
                             <div>
                                 <div className="text-2xl font-serif font-normal text-foreground mb-1">Nairobi, Kenya</div>

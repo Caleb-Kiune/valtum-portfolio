@@ -1,7 +1,7 @@
 "use client";
 
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Monitor, PenTool, Box, Layers, Video, Palette, MonitorPlay } from "lucide-react";
+import { Monitor, Box, Layers, Video, Palette, MonitorPlay } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { FADE_UP, STAGGER_NORMAL, VIEWPORT } from "@/lib/motion";
