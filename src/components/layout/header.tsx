@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
 const NAV_LINKS = [
     { name: "Projects", href: "#projects" },
@@ -13,17 +13,48 @@ const NAV_LINKS = [
 ];
 
 export function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    // Handle scroll state for glass effect
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // ── Scroll-linked header morph ──
+    const { scrollY } = useScroll();
+
+    // Interpolation range: 0px (top) → 100px (scrolled)
+    const headerBg = useTransform(
+        scrollY,
+        [0, 100],
+        ["hsla(40, 22%, 95%, 0)", "hsla(40, 22%, 95%, 1)"]
+    );
+    const headerBorder = useTransform(
+        scrollY,
+        [0, 100],
+        ["hsla(37, 14%, 87%, 0)", "hsla(37, 14%, 87%, 1)"]
+    );
+    const navText = useTransform(
+        scrollY,
+        [0, 100],
+        ["rgba(255, 255, 255, 0.85)", "hsla(0, 0%, 42%, 1)"]
+    );
+    const brandText = useTransform(
+        scrollY,
+        [0, 100],
+        ["rgba(255, 255, 255, 0.95)", "hsla(0, 0%, 11%, 1)"]
+    );
+    const ctaBorder = useTransform(
+        scrollY,
+        [0, 100],
+        ["rgba(255, 255, 255, 0.3)", "hsla(37, 14%, 87%, 1)"]
+    );
+    const ctaText = useTransform(
+        scrollY,
+        [0, 100],
+        ["rgba(255, 255, 255, 0.85)", "hsla(0, 0%, 11%, 1)"]
+    );
+
+    // Boolean for mobile menu + any conditional class logic
+    const [isScrolled, setIsScrolled] = useState(false);
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 20);
+    });
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
@@ -36,56 +67,79 @@ export function Header() {
     }, [isMobileMenuOpen]);
 
     return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? "bg-page border-b border-border py-3" : "bg-transparent py-5"
-                }`}
+        <motion.header
+            className={`fixed top-0 left-0 right-0 z-50 transition-[padding] duration-300 ${
+                isMobileMenuOpen ? "!bg-page !border-border" : ""
+            } ${isScrolled ? "py-3" : "py-5"}`}
+            style={{
+                backgroundColor: isMobileMenuOpen ? undefined : headerBg,
+                borderBottomWidth: "1px",
+                borderBottomStyle: "solid",
+                borderBottomColor: isMobileMenuOpen ? undefined : headerBorder,
+            }}
         >
             <div className="container mx-auto px-6 h-12 flex items-center justify-between relative z-50">
                 {/* Brand Logo */}
-                <Link
-                    href="/"
-                    className="font-serif text-display-sm tracking-tight text-foreground hover:text-accent transition-colors z-50 relative"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                        setIsMobileMenuOpen(false);
-                    }}
-                >
-                    Valtum
-                </Link>
+                <motion.span style={{ color: isMobileMenuOpen ? undefined : brandText }} className="z-50 relative">
+                    <Link
+                        href="/"
+                        className={`font-serif text-display-sm tracking-tight hover:text-accent transition-colors ${
+                            isMobileMenuOpen ? "text-foreground" : ""
+                        }`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            setIsMobileMenuOpen(false);
+                        }}
+                    >
+                        Valtum
+                    </Link>
+                </motion.span>
 
                 {/* DESKTOP NAV - Minimalist Center */}
                 <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
                     {NAV_LINKS.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="group relative text-body-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                        >
-                            {link.name}
-                            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
-                        </Link>
+                        <motion.span key={link.name} style={{ color: navText }}>
+                            <Link
+                                href={link.href}
+                                className="group relative text-body-sm font-medium hover:text-accent transition-colors py-2"
+                            >
+                                {link.name}
+                                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                            </Link>
+                        </motion.span>
                     ))}
                 </nav>
 
                 {/* DESKTOP CTA - Right Wing */}
                 <div className="hidden md:flex items-center gap-3">
-                    <Link
-                        href="#contact"
-                        className="border border-border text-body-sm font-medium uppercase tracking-[0.1em] px-6 py-2.5 hover:border-accent hover:text-accent transition-colors"
+                    <motion.span
+                        style={{
+                            color: ctaText,
+                            borderColor: ctaBorder,
+                        }}
+                        className="inline-flex"
                     >
-                        Book a Consultation
-                    </Link>
+                        <Link
+                            href="#contact"
+                            className="border border-inherit text-body-sm font-medium uppercase tracking-[0.1em] px-6 py-2.5 hover:border-accent hover:text-accent transition-colors"
+                        >
+                            Book a Consultation
+                        </Link>
+                    </motion.span>
                 </div>
 
                 {/* MOBILE TOGGLE */}
-                <button
-                    className="md:hidden text-foreground/80 hover:text-foreground relative z-50 p-1"
+                <motion.button
+                    className="md:hidden hover:opacity-80 relative z-50 p-1"
+                    style={{
+                        color: isMobileMenuOpen ? "hsl(0, 0%, 11%)" : brandText,
+                    }}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label="Toggle menu"
                 >
                     {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                </motion.button>
             </div>
 
             {/* ROBUST MOBILE MENU - Absolute Dropdown (No Transparency Glitch) */}
@@ -127,6 +181,6 @@ export function Header() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header>
+        </motion.header>
     );
 }

@@ -65,8 +65,13 @@ export function Hero() {
                 />
             </motion.div>
 
-            {/* Gradient Overlay */}
+            {/* ── Gradient Overlays: Dual-Vignette Atmospheric Scrim ── */}
+
+            {/* Bottom scrim — protects H1 and CTA (unchanged) */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none" />
+
+            {/* Top scrim — protects fixed header/navigation */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/10 to-transparent z-10 pointer-events-none" style={{ height: '30%' }} />
 
             {/* Content Container positioned at bottom */}
             <div className="absolute bottom-0 left-0 w-full z-20 pb-20 md:pb-32">
